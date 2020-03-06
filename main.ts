@@ -90,15 +90,15 @@ namespace motorbit {
     }
 
     export enum Motors {
-        M1 = 0x3,
-        M2 = 0x4,
-        M3 = 0x1,
-        M4 = 0x2
+        A01A02 = 0x3,
+        B01B02 = 0x4,
+        A03A04 = 0x1,
+        B03B04 = 0x2
     }
 
     export enum Steppers {
-        STPM1 = 0x2,
-        STPM2 = 0x1
+        STPM1_2 = 0x2,
+        STPM3_4 = 0x1
     }
 
     export enum SonarVersion {
@@ -227,9 +227,9 @@ namespace motorbit {
      * @param index Servo Channel; eg: S1
      * @param degree [0-180] degree of servo; eg: 0, 90, 180
     */
-    //% blockId=motorbit_servo block="Servo|%index|degree %degree"
+    //% blockId=motorbit_servo block="Servo|%index|degree %degree=protractorPicker"
     //% weight=100
-    //% degree.min=0 degree.max=180
+    //% degree.defl=90
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Servo(index: Servos, degree: number): void {
         if (!initialized) {
@@ -246,10 +246,10 @@ namespace motorbit {
      * @param index Servo Channel; eg: S1
      * @param degree [-45-225] degree of servo; eg: -45, 90, 225
     */
-    //% blockId=motorbit_gservo block="Geek Servo|%index|degree %degree"
-    //% weight=99
+    //% blockId=motorbit_gservo block="Geek Servo|%index|degree %degree=protractorPicker"
+    //% weight=98
     //% blockGap=50
-    //% degree.min=-45 degree.max=225
+    //% degree.defl=90
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function GeekServo(index: Servos, degree: number): void {
         if (!initialized) {
@@ -261,8 +261,46 @@ namespace motorbit {
         setPwm(index + 7, 0, value)
     }
 
+    /**
+     * Servo Execute
+     * @param index Servo Channel; eg: S1
+     * @param degree1 [0-180] degree of servo; eg: 0, 90, 180
+	 * @param degree2 [0-180] degree of servo; eg: 0, 90, 180
+	 * @param speed [1-10] speed of servo; eg: 1, 10
+    */
+    //% blockId=motorbit_servospeed block="Servo|%index|degree start %degree1=protractorPicker|end %degree2=protractorPicker|speed %speed"
+    //% weight=96
+    //% degree1.defl=90
+    //% degree2.defl=90
+    //% speed.min=1 speed.max=10
+    //% inlineInputMode=inline
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function Servospeed(index: Servos, degree1: number, degree2: number, speed: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        // 50hz: 20,000 us
+        if(degree1 > degree2){
+            for(let i=degree1;i>degree2;i--){
+                let v_us = (i * 1800 / 180 + 600) // 0.6 ~ 2.4
+                let value = v_us * 4096 / 20000
+                basic.pause(4 * (10 - speed));
+                setPwm(index + 7, 0, value)
+            }
+        }
+        else{
+            for(let i=degree1;i<degree2;i++){
+                let v_us = (i * 1800 / 180 + 600) // 0.6 ~ 2.4
+                let value = v_us * 4096 / 20000
+                basic.pause(4 * (10 - speed));
+                setPwm(index + 7, 0, value)
+            }
+        }
+    }
+
+
     //% blockId=motorbit_stepper_degree block="Stepper 28BYJ-48|%index|degree %degree"
-    //% weight=90
+    //% weight=91
     export function StepperDegree(index: Steppers, degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -281,7 +319,7 @@ namespace motorbit {
         StepperDegree(index, degree);
     }
 
-    //% blockId=motorbit_stepper_dual block="Dual Stepper(Degree) |STPM1 %degree1| STPM2 %degree2"
+    //% blockId=motorbit_stepper_dual block="Dual Stepper(Degree) |STPM1_2 %degree1| STPM3_4 %degree2"
     //% weight=89
     export function StepperDual(degree1: number, degree2: number): void {
         if (!initialized) {
@@ -343,8 +381,27 @@ namespace motorbit {
         MotorStopAll()
     }
 
-    //% blockId=motorbit_motor_run block="Motor|%index|speed %speed"
+
+    //% blockId=motorbit_stop_all block="Motor Stop All"
     //% weight=85
+    //% blockGap=50
+    export function MotorStopAll(): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        for (let idx = 1; idx <= 4; idx++) {
+            stopMotor(idx);
+        }
+    }
+
+    //% blockId=motorbit_stop block="Motor Stop|%index|"
+    //% weight=84
+    export function MotorStop(index: Motors): void {
+        MotorRun(index, 0);
+    }
+
+    //% blockId=motorbit_motor_run block="Motor|%index|speed %speed"
+    //% weight=82
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function MotorRun(index: Motors, speed: number): void {
@@ -372,26 +429,8 @@ namespace motorbit {
     }
 
     /**
-     * Execute two motors at the same time
-     * @param motor1 First Motor; eg: M1, M2
-     * @param speed1 [-255-255] speed of motor; eg: 150, -150
-     * @param motor2 Second Motor; eg: M3, M4
-     * @param speed2 [-255-255] speed of motor; eg: 150, -150
-    */
-    //% blockId=motorbit_motor_dual block="Motor|%motor1|speed %speed1|%motor2|speed %speed2"
-    //% weight=84
-    //% inlineInputMode=inline
-    //% speed1.min=-255 speed1.max=255
-    //% speed2.min=-255 speed2.max=255
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function MotorRunDual(motor1: Motors, speed1: number, motor2: Motors, speed2: number): void {
-        MotorRun(motor1, speed1);
-        MotorRun(motor2, speed2);
-    }
-
-    /**
      * Execute single motors with delay
-     * @param index Motor Index; eg: M1, M2, M3, M4
+     * @param index Motor Index; eg: A01A02, B01B02, A03A04, B03B04
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 1
     */
@@ -405,22 +444,37 @@ namespace motorbit {
         MotorRun(index, 0);
     }
 
-    //% blockId=motorbit_stop block="Motor Stop|%index|"
+
+
+    /**
+     * Execute two motors at the same time
+     * @param motor1 First Motor; eg: A01A02, B01B02
+     * @param speed1 [-255-255] speed of motor; eg: 150, -150
+     * @param motor2 Second Motor; eg: A03A04, B03B04
+     * @param speed2 [-255-255] speed of motor; eg: 150, -150
+    */
+    //% blockId=motorbit_motor_dual block="Motor|%motor1|speed %speed1|%motor2|speed %speed2"
     //% weight=80
-    export function MotorStop(index: Motors): void {
-        MotorRun(index, 0);
+    //% inlineInputMode=inline
+    //% speed1.min=-255 speed1.max=255
+    //% speed2.min=-255 speed2.max=255
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function MotorRunDual(motor1: Motors, speed1: number, motor2: Motors, speed2: number): void {
+        MotorRun(motor1, speed1);
+        MotorRun(motor2, speed2);
     }
 
-    //% blockId=motorbit_stop_all block="Motor Stop All"
-    //% weight=79
-    //% blockGap=50
-    export function MotorStopAll(): void {
-        if (!initialized) {
-            initPCA9685()
+
+    /**
+     * Init RGB pixels mounted on motorbit
+     */
+    //% blockId="motorbit_rgb" block="RGB"
+    //% weight=77
+    export function rgb(): neopixel.Strip {
+        if (!neoStrip) {
+            neoStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
         }
-        for (let idx = 1; idx <= 4; idx++) {
-            stopMotor(idx);
-        }
+        return neoStrip;
     }
 
     /**
@@ -428,7 +482,7 @@ namespace motorbit {
      * @param pin Microbit ultrasonic pin; eg: P2
     */
     //% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"
-    //% weight=78
+    //% weight=76
     export function Ultrasonic(pin: DigitalPin): number {
         return UltrasonicVer(pin, SonarVersion.V1);
     }
@@ -469,7 +523,7 @@ namespace motorbit {
     }
 
 	//% blockId="motorbit_rus04" block="RgbUltrasonic|%RgbUltrasonics|show color %rgb|effect %ColorEffect"
-	//% weight=76
+	//% weight=74
     export function RUS_04(index: RgbUltrasonics, rgb: RgbColors, effect: ColorEffect): void {
         let start, end;
         if (!neoStrip) {
@@ -546,18 +600,6 @@ namespace motorbit {
             }
             break;
         }
-    }
-
-    /**
-     * Init RGB pixels mounted on motorbit
-     */
-    //% blockId="motorbit_rgb" block="RGB"
-    //% weight=75
-    export function rgb(): neopixel.Strip {
-        if (!neoStrip) {
-            neoStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
-        }
-        return neoStrip;
     }
 
 }
