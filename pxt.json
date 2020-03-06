@@ -1,13 +1,14 @@
 {
     "name": "motorbit",
-    "version": "1.0.0",
-    "description": "Emakefun motorbit expansion board",
-    "license": "MIT",
+    "version": "0.0.0",
+    "description": "motorbit emakefun",
     "dependencies": {
         "core": "*",
-        "neopixel": "github:kittenbot/pxt-neopixel#v0.6.13"
+        "radio": "*",
+        "neopixel": "github:Kittenbot/pxt-neopixel#v0.6.13"
     },
     "files": [
+        "README.md",
         "main.ts",
         "shims.d.ts",
         "enums.d.ts",
@@ -17,11 +18,11 @@
         "RemoteIR.h",
         "TransmitterIR.cpp",
         "TransmitterIR.h",
-        "_locales/zh/magicbit-strings.json"
+        "_locales/zh/motorbit-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
-    "preferredEditor": "tsprj"
+    "license": "MIT"
 }

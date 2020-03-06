@@ -87,7 +87,6 @@ namespace IrRemote {
   * button pushed.
   */
   //% blockId=ir_received_left_event
-  //% weight=79
   //% block="on |%btn| button pressed"
   void onPressEvent(RemoteButton btn, Action body) {
     //if(actions.find(btn) == actions.end()) actions[btn] = new vector();
@@ -118,7 +117,6 @@ namespace IrRemote {
   * initialises local variablesssss
   */
   //% blockId=ir_init
-  //% weight=80
   //% block="connect ir receiver to %pin"
   void init(Pins pin){
     rx = new ReceiverIR((PinName)pin);
