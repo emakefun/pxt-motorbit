@@ -247,7 +247,7 @@ namespace motorbit {
      * @param degree [-45-225] degree of servo; eg: -45, 90, 225
     */
     //% blockId=motorbit_gservo block="Geek Servo|%index|degree %degree=protractorPicker"
-    //% weight=98
+    //% weight=99
     //% blockGap=50
     //% degree.defl=90
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -269,7 +269,7 @@ namespace motorbit {
 	 * @param speed [1-10] speed of servo; eg: 1, 10
     */
     //% blockId=motorbit_servospeed block="Servo|%index|degree start %degree1=protractorPicker|end %degree2=protractorPicker|speed %speed"
-    //% weight=96
+    //% weight=98
     //% degree1.defl=90
     //% degree2.defl=90
     //% speed.min=1 speed.max=10
@@ -300,7 +300,7 @@ namespace motorbit {
 
 
     //% blockId=motorbit_stepper_degree block="Stepper 28BYJ-48|%index|degree %degree"
-    //% weight=91
+    //% weight=93
     export function StepperDegree(index: Steppers, degree: number): void {
         if (!initialized) {
             initPCA9685()
@@ -313,14 +313,14 @@ namespace motorbit {
 
 
     //% blockId=motorbit_stepper_turn block="Stepper 28BYJ-48|%index|turn %turn"
-    //% weight=90
+    //% weight=92
     export function StepperTurn(index: Steppers, turn: Turns): void {
         let degree = turn;
         StepperDegree(index, degree);
     }
 
     //% blockId=motorbit_stepper_dual block="Dual Stepper(Degree) |STPM1_2 %degree1| STPM3_4 %degree2"
-    //% weight=89
+    //% weight=91
     export function StepperDual(degree1: number, degree2: number): void {
         if (!initialized) {
             initPCA9685()
@@ -347,7 +347,7 @@ namespace motorbit {
      * @param diameter diameter of wheel in mm; eg: 48
     */
     //% blockId=motorbit_stpcar_move block="Car Forward|Distance(cm) %distance|Wheel Diameter(mm) %diameter"
-    //% weight=88
+    //% weight=89
     export function StpCarMove(distance: number, diameter: number): void {
         if (!initialized) {
             initPCA9685()
@@ -367,7 +367,7 @@ namespace motorbit {
      * @param track track width of car; eg: 125
     */
     //% blockId=motorbit_stpcar_turn block="Car Turn|Degree %turn|Wheel Diameter(mm) %diameter|Track(mm) %track"
-    //% weight=87
+    //% weight=88
     //% blockGap=50
     export function StpCarTurn(turn: number, diameter: number, track: number): void {
         if (!initialized) {
@@ -380,6 +380,7 @@ namespace motorbit {
         basic.pause(delay);
         MotorStopAll()
     }
+
 
 
     //% blockId=motorbit_stop_all block="Motor Stop All"
@@ -469,7 +470,7 @@ namespace motorbit {
      * Init RGB pixels mounted on motorbit
      */
     //% blockId="motorbit_rgb" block="RGB"
-    //% weight=77
+    //% weight=76
     export function rgb(): neopixel.Strip {
         if (!neoStrip) {
             neoStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
@@ -482,7 +483,7 @@ namespace motorbit {
      * @param pin Microbit ultrasonic pin; eg: P2
     */
     //% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"
-    //% weight=76
+    //% weight=75
     export function Ultrasonic(pin: DigitalPin): number {
         return UltrasonicVer(pin, SonarVersion.V1);
     }
