@@ -1,10 +1,9 @@
 {
     "name": "motorbit",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "motorbit emakefun",
     "dependencies": {
         "core": "*",
-        "radio": "*",
         "neopixel": "github:Kittenbot/pxt-neopixel#v0.6.13"
     },
     "files": [
@@ -24,5 +23,6 @@
         "test.ts"
     ],
     "public": true,
-    "license": "MIT"
+    "license": "MIT",
+    "preferredEditor": "tsprj"
 }
