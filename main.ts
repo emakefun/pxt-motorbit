@@ -29,23 +29,23 @@ enum RgbColors {
 }
 
 enum RgbUltrasonics {
-//% block=left
-Left = 0x00,
-//% block=right
-Right = 0x01,
-//% block=all
-All = 0x02
+	//% block=left
+	Left = 0x00,
+	//% block=right
+	Right = 0x01,
+	//% block=all
+	All = 0x02
 }
 
 enum ColorEffect {
-//% block=none
-None = 0x00,
-//% block=breathing
-Breathing = 0x01,
-//% block=rotate
-Rotate = 0x02,
-//% block=flash
-Flash = 0x03
+	//% block=none
+	None = 0x00,
+	//% block=breathing
+	Breathing = 0x01,
+	//% block=rotate
+	Rotate = 0x02,
+	//% block=flash
+	Flash = 0x03
 }
 
 //% color="#EE6A50" weight=10 icon="\uf085"
@@ -622,7 +622,7 @@ namespace motorbit {
 		}
 	}
 	/**
-     * 循迹传感器
+     * tracking sensor
      */
     //% blockId=sensor_tracking block="sensor_tracking pin |digitalpin %pin"
 	//% weight=74
@@ -640,7 +640,7 @@ namespace motorbit {
 	let outPin3 = 0;
 	let outPin4 = 0;
 	/**
-     * 四路循迹传感器初始化
+     * four tracking sensor
      */
     //% blockId=four_sensor_tracking block="four_sensor_tracking pin1 |digitalpin %pin1 pin2 |digitalpin %pin2 |pin3 |digitalpin %pin3 |pin4 |digitalpin %pin4"
     //% inlineInputMode=inline
