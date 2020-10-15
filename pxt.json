@@ -2,19 +2,16 @@
     "name": "motorbit",
     "version": "1.0.0",
     "description": "motorbit emakefun",
+    "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "neopixel": "github:Kittenbot/pxt-neopixel#v0.6.13"
+        "core": "*"
     },
     "files": [
         "README.md",
         "main.ts",
-        "shims.d.ts",
         "enums.d.ts",
         "ir.cpp",
-        "ReceiverIR.cpp",
-        "ReceiverIR.h",
-        "RemoteIR.h",
+		"sendbuffer.asm",
         "TransmitterIR.cpp",
         "TransmitterIR.h",
         "_locales/zh/motorbit-strings.json"
@@ -23,6 +20,5 @@
         "test.ts"
     ],
     "public": true,
-    "license": "MIT",
     "preferredEditor": "tsprj"
 }

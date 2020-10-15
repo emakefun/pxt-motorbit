@@ -1,53 +1,3 @@
-/*
-ken@emakefun.com
-modified from pxt-servo/servodriver.ts
-load dependency
-"motorbit": "file:../pxt-motorbit"
-*/
-
-enum RgbColors {
-    //% block=red
-    Red = 0xFF0000,
-    //% block=orange
-    Orange = 0xFFA500,
-    //% block=yellow
-    Yellow = 0xFFFF00,
-    //% block=green
-    Green = 0x00FF00,
-    //% block=blue
-    Blue = 0x0000FF,
-    //% block=indigo
-    Indigo = 0x4b0082,
-    //% block=violet
-    Violet = 0x8a2be2,
-    //% block=purple
-    Purple = 0xFF00FF,
-    //% block=white
-    White = 0xFFFFFF,
-    //% block=black
-    Black = 0x000000
-}
-
-enum RgbUltrasonics {
-	//% block=left
-	Left = 0x00,
-	//% block=right
-	Right = 0x01,
-	//% block=all
-	All = 0x02
-}
-
-enum ColorEffect {
-	//% block=none
-	None = 0x00,
-	//% block=breathing
-	Breathing = 0x01,
-	//% block=rotate
-	Rotate = 0x02,
-	//% block=flash
-	Flash = 0x03
-}
-
 //% color="#EE6A50" weight=10 icon="\uf085"
 namespace motorbit {
 	const PCA9685_ADDRESS = 0x40
@@ -77,6 +27,20 @@ namespace motorbit {
 
 	const STP_CHD_L = 3071
 	const STP_CHD_H = 1023
+
+	const _NOOP = 0 // no-op (do nothing, doesn't change current status)
+	const _DIGIT = [1, 2, 3, 4, 5, 6, 7, 8] // digit (LED column)
+	const _DECODEMODE = 9 // decode mode (1=on, 0-off; for 7-segment display on MAX7219, no usage here)
+	const _INTENSITY = 10 // intensity (LED brightness level, 0-15)
+	const _SCANLIMIT = 11 // scan limit (number of scanned digits)
+	const _SHUTDOWN = 12 // turn on (1) or off (0)
+	const _DISPLAYTEST = 15 // force all LEDs light up, no usage here
+
+	let _pinCS = DigitalPin.P16 // LOAD pin, 0=ready to receive command, 1=command take effect
+	let _matrixNum = 1 // number of MAX7219 matrix linked in the chain
+	let _displayArray: number[] = [] // display array to show accross all matrixs
+	let _rotation = 0 // rotate matrixs display for 4-in-1 modules
+	let _reversed = false // reverse matrixs display order for 4-in-1 modules
 
 	export enum Servos {
 		S1 = 0x01,
@@ -122,9 +86,11 @@ namespace motorbit {
 		//% blockId="T5B0" block="5"
 		T5B0 = 1800
 	}
-
+//测试
 	let initialized = false
-	let neoStrip: neopixel.Strip;
+//	let neoStrip: neopixel.Strip;
+	
+	
 	let matBuf = pins.createBuffer(17);
 	let distanceBuf = 0;
 
@@ -445,6 +411,8 @@ namespace motorbit {
 		MotorRun(index, 0);
 	}
 
+
+
 	/**
 	 * Execute two motors at the same time
 	 * @param motor1 First Motor; eg: A01A02, B01B02
@@ -462,226 +430,9 @@ namespace motorbit {
 		MotorRun(motor1, speed1);
 		MotorRun(motor2, speed2);
 	}
+
+
 	
-	/**
-	 * Execute two motors at the same time
-	 * @param motor1 First Motor; eg: A01A02, B01B02
-	 * @param speed1 [-255-255] speed of motor; eg: 150, -150
-	 * @param motor2 Second Motor; eg: A03A04, B03B04
-	 * @param speed2 [-255-255] speed of motor; eg: 150, -150
-	*/
-	//% blockId=motorbit_motor_dualDelay block="Motor|%motor1|speed %speed1|%motor2|speed %speed2|delay %delay|s "
-	//% weight=80
-	//% inlineInputMode=inline
-	//% speed1.min=-255 speed1.max=255
-	//% speed2.min=-255 speed2.max=255
-	//% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
-	export function MotorRunDualDelay(motor1: Motors, speed1: number, motor2: Motors, speed2: number, delay: number): void {
-		MotorRun(motor1, speed1);
-		MotorRun(motor2, speed2);
-		basic.pause(delay * 1000);
-		MotorRun(motor1, 0);
-		MotorRun(motor2, 0);
-	}
 
-
-	/**
-	 * Init RGB pixels mounted on motorbit
-	 */
-	//% blockId="motorbit_rgb" block="RGB"
-	//% weight=78
-	export function rgb(): neopixel.Strip {
-		if (!neoStrip) {
-			neoStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
-		}
-		return neoStrip;
-	}
-
-	/**
-	 * Get RUS04 distance
-	 * @param pin Microbit ultrasonic pin; eg: P2
-	*/
-	//% blockId=motorbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm"
-	//% weight=76
-	export function Ultrasonic(pin: DigitalPin): number {
-		return UltrasonicVer(pin, SonarVersion.V1);
-	}
-
-	function UltrasonicVer(pin: DigitalPin, v: SonarVersion): number {
-
-		// send pulse
-		if (v == SonarVersion.V1) {
-			pins.setPull(pin, PinPullMode.PullNone);
-		}
-		else { pins.setPull(pin, PinPullMode.PullDown); }
-		pins.digitalWritePin(pin, 0);
-		control.waitMicros(2);
-		pins.digitalWritePin(pin, 1);
-		control.waitMicros(50);
-		pins.digitalWritePin(pin, 0);
-
-		// read pulse
-		let d = pins.pulseIn(pin, PulseValue.High, 25000);
-		let ret = d;
-		// filter timeout spikes
-		if (ret == 0 && distanceBuf != 0) {
-			ret = distanceBuf;
-		}
-		distanceBuf = d;
-		if (v == SonarVersion.V1) {
-			return Math.floor(ret * 9 / 6 / 58);
-		}
-		return Math.floor(ret / 40 + (ret / 800));
-		// Correction
-	}
-
-	function RgbDisplay(indexstart: number, indexend: number, rgb: RgbColors): void {
-		for (let i = indexstart; i <= indexend; i++) {
-			neoStrip.setPixelColor(i, rgb);
-		}
-		neoStrip.show();
-	}
-
-	//% blockId="motorbit_rus04" block="RgbUltrasonic|%RgbUltrasonics|show color %rgb|effect %ColorEffect"
-	//% weight=75
-	export function RUS_04(index: RgbUltrasonics, rgb: RgbColors, effect: ColorEffect): void {
-		let start, end;
-		if (!neoStrip) {
-			neoStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
-		}
-		if (index == RgbUltrasonics.Left) {
-			start = 4;
-			end = 6;
-		} else if (index == RgbUltrasonics.Right) {
-			start = 7;
-			end = 9;
-		} else if (index == RgbUltrasonics.All) {
-			start = 4;
-			end = 9;
-		}
-		switch(effect) {
-			case ColorEffect.None:
-				RgbDisplay(start, end, rgb);
-				break;
-			case ColorEffect.Breathing:
-			for (let i = 0; i < 255; i+=2) {
-				neoStrip.setBrightness(i);
-				RgbDisplay(start, end, rgb);
-				//basic.pause((255 - i)/2);
-				basic.pause((i < 20)? 80 :(255/i));
-			}
-			for (let i = 255; i > 0; i-=2) {
-				neoStrip.setBrightness(i);
-				RgbDisplay(start, end, rgb);
-				basic.pause((i < 20)? 80 :(255/i));
-			}
-			break;
-			case ColorEffect.Rotate:
-				for (let i = 0; i < 4; i++) {
-					neoStrip.setPixelColor(start, rgb);
-					neoStrip.setPixelColor(start+1, 0);
-					neoStrip.setPixelColor(start+2, 0);
-					if (index == RgbUltrasonics.All) {
-						neoStrip.setPixelColor(end-2, rgb);
-						neoStrip.setPixelColor(end-1, 0);
-						neoStrip.setPixelColor(end, 0);
-					}
-					neoStrip.show();
-					basic.pause(150);
-					neoStrip.setPixelColor(start, 0);
-					neoStrip.setPixelColor(start+1, rgb);
-					neoStrip.setPixelColor(start+2, 0);
-					if (index == RgbUltrasonics.All) {
-						neoStrip.setPixelColor(end-2, 0);
-						neoStrip.setPixelColor(end-1, rgb);
-						neoStrip.setPixelColor(end, 0);
-					}
-					neoStrip.show();
-					basic.pause(150);
-					neoStrip.setPixelColor(start, 0);
-					neoStrip.setPixelColor(start+1, 0);
-					neoStrip.setPixelColor(start+2, rgb);
-					if (index == RgbUltrasonics.All) {
-						neoStrip.setPixelColor(end-2, 0);
-						neoStrip.setPixelColor(end-1, 0);
-						neoStrip.setPixelColor(end, rgb);
-					}
-					neoStrip.show();
-					basic.pause(150);
-				}
-				RgbDisplay(4, 9, 0);
-				break;
-			case ColorEffect.Flash:
-			for (let i = 0; i < 6; i++) {
-				RgbDisplay(start, end, rgb);
-				basic.pause(150);
-				RgbDisplay(start, end, 0);
-				basic.pause(150);
-			}
-			break;
-		}
-	}
-	/**
-     * tracking sensor
-     */
-    //% blockId=sensor_tracking block="sensor_tracking pin |digitalpin %pin"
-	//% weight=74
-    export function sensor_tracking(pin: DigitalPin): boolean {
-	  pins.digitalWritePin(pin, 0)
-	     if (pins.digitalReadPin(pin) == 1) {
-		    return false;
-		}else {
-		    return true;
-		}
-	}
-	
-	let outPin1 = 0;
-	let outPin2 = 0;
-	let outPin3 = 0;
-	let outPin4 = 0;
-	/**
-     * four tracking sensor
-     */
-    //% blockId=four_sensor_tracking block="four_sensor_tracking pin1 |digitalpin %pin1 pin2 |digitalpin %pin2 |pin3 |digitalpin %pin3 |pin4 |digitalpin %pin4"
-    //% inlineInputMode=inline
-	//% weight=73
-	export function four_sensor_tracking(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, pin4: DigitalPin): void {
-	  outPin1 = pin1;
-	  outPin2 = pin2;
-	  outPin3 = pin3;
-	  outPin4 = pin4;
-	}
-	
-	//% blockId=four_sensor_trackingValue block="four_sensor_tracking get sensor value"
-    //% inlineInputMode=inline
-	//% weight=72
-	export function four_sensor_trackingValue(): number {
-	  let result = 0;
-	  pins.digitalWritePin(outPin1, 0)
-	  pins.digitalWritePin(outPin2, 0)
-	  pins.digitalWritePin(outPin3, 0)
-	  pins.digitalWritePin(outPin4, 0)
-	  if (pins.digitalReadPin(outPin1) == 1) {
-		result = 1 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	  if (pins.digitalReadPin(outPin2) == 1) {
-		result = 2 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	  if (pins.digitalReadPin(outPin3) == 1) {
-		result = 4 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	   if (pins.digitalReadPin(outPin4) == 1) {
-		result = 8 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	  return result;
-	}
-
+   
 }
