@@ -8,6 +8,7 @@
     "motorbit.StpCarTurn|block": "步进小车 转向 |角度 %turn|轮直径(mm) %diameter|轮距(mm) %track",
     "motorbit.MotorRun|block": "电机|%index|速度 %speed",
     "motorbit.MotorRunDual|block": "电机|%motor1|速度 %speed1|%motor2|速度 %speed2",
+	"motorbit.MotorRunDualDelay|block": "电机|%motor1|速度 %speed1|%motor2|速度 %speed2|延时 %delay|s",
     "motorbit.MotorRunDelay|block": "电机|%index|速度 %speed|延时 %delay|s",
     "motorbit.MotorStop|block": "电机 停止|%index",
     "motorbit.MotorStopAll|block": "停止所有电机",
@@ -29,17 +30,12 @@
     "ColorEffect.Breathing|block": "呼吸灯",
     "ColorEffect.Rotate|block": "旋转流星",
     "ColorEffect.Flash|block": "闪烁",
-    "motorbit.RUS_04|block": "RGB超声波|%RgbUltrasonics|显示颜色%rgb|特效%effect|引脚 %pin",
+    "motorbit.RUS_04|block": "RGB超声波|%RgbUltrasonics|显示颜色%rgb|特效%effect",
     "motorbit.rgb|block": "板载RGB",
     "IrRemote|block": "红外",
     "IrRemote.init|block": "红外遥控器初始化引脚|%pin",
     "IrRemote.onPressEvent|block": "当红外遥控器按键|%btn|按下",
-	"motorbit.GetKeyCode|block": "矩阵键盘|SDO引脚 %SDO|SCL引脚 %SCL",
-	"motorbit.setup|block": "初始化|矩阵数(一般为1) $num|CS引脚 $cs|DIN引脚 $mosi|CLK引脚 $sck|MISO引脚(已禁用) $miso",
-	"motorbit.scrollText|block": "滚动字符 $text|延时(ms) $delay|最后停留时间(ms) $endDelay",
-	"motorbit.brightnessAll|block": "设置亮度 $level",
-	"motorbit.fillAll|block": "全屏点亮",
-	"motorbit.clearAll|block": "全屏熄灭",
-	"motorbit.randomizeAll|block": "随机点亮"
-	
+	"motorbit.sensor_tracking|block": "引脚 %pin 检测到黑线？",
+	"motorbit.four_sensor_tracking|block": "四路循迹初始化引脚OUT0|%pin1|引脚OUT1|%pin2|引脚OUT2|%pin3|引脚OUT3|%pin4",
+	"motorbit.four_sensor_trackingValue|block": "四路循迹传感器获取的值"
 }
