@@ -5,48 +5,6 @@ load dependency
 "motorbit": "file:../pxt-motorbit"
 */
 
-enum RgbColors {
-    //% block=red
-    Red = 0xFF0000,
-    //% block=orange
-    Orange = 0xFFA500,
-    //% block=yellow
-    Yellow = 0xFFFF00,
-    //% block=green
-    Green = 0x00FF00,
-    //% block=blue
-    Blue = 0x0000FF,
-    //% block=indigo
-    Indigo = 0x4b0082,
-    //% block=violet
-    Violet = 0x8a2be2,
-    //% block=purple
-    Purple = 0xFF00FF,
-    //% block=white
-    White = 0xFFFFFF,
-    //% block=black
-    Black = 0x000000
-}
-
-enum RgbUltrasonics {
-//% block=left
-Left = 0x00,
-//% block=right
-Right = 0x01,
-//% block=all
-All = 0x02
-}
-
-enum ColorEffect {
-//% block=none
-None = 0x00,
-//% block=breathing
-Breathing = 0x01,
-//% block=rotate
-Rotate = 0x02,
-//% block=flash
-Flash = 0x03
-}
 
 //% color="#EE6A50" weight=10 icon="\uf085"
 namespace motorbit {
