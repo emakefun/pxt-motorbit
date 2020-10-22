@@ -1,3 +1,7 @@
+# Please Contact Us
+Technical support email: support@emakefun.com</br>
+Sales email: ken@emakefun.com</br>
+The latest information download address:https://github.com/emakefun/pxt-motorbit  </br>
 # motorbit
 
 motorbit emakefun
