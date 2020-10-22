@@ -8,7 +8,6 @@
     "files": [
         "README.md",
         "main.ts",
-        "shims.d.ts",
         "enums.d.ts",
         "ir.cpp",
         "sendbuffer.asm",
