@@ -5,7 +5,6 @@ load dependency
 "motorbit": "file:../pxt-motorbit"
 */
 
-
 //% color="#EE6A50" weight=10 icon="\uf085"
 namespace motorbit {
 const PCA9685_ADDRESS = 0x40
@@ -443,70 +442,4 @@ export function MotorRunDualDelay(motor1: Motors, speed1: number, motor2: Motors
 	MotorRun(motor1, 0);
     MotorRun(motor2, 0);
 }
-
-
-
-	
-	/**
-     * 循迹传感器
-     */
-    //% blockId=sensor_tracking block="sensor_tracking pin |digitalpin %pin"
-	//% weight=74
-    export function sensor_tracking(pin: DigitalPin): boolean {
-	  pins.digitalWritePin(pin, 0)
-	     if (pins.digitalReadPin(pin) == 1) {
-		    return false;
-		}else {
-		    return true;
-		}
-	}
-	
-	let outPin1 = 0;
-	let outPin2 = 0;
-	let outPin3 = 0;
-	let outPin4 = 0;
-	/**
-     * 四路循迹传感器初始化
-     */
-    //% blockId=four_sensor_tracking block="four_sensor_tracking pin1 |digitalpin %pin1 pin2 |digitalpin %pin2 |pin3 |digitalpin %pin3 |pin4 |digitalpin %pin4"
-    //% inlineInputMode=inline
-	//% weight=73
-	export function four_sensor_tracking(pin1: DigitalPin, pin2: DigitalPin, pin3: DigitalPin, pin4: DigitalPin): void {
-	  outPin1 = pin1;
-	  outPin2 = pin2;
-	  outPin3 = pin3;
-	  outPin4 = pin4;
-	}
-	
-	//% blockId=four_sensor_trackingValue block="four_sensor_tracking get sensor value"
-    //% inlineInputMode=inline
-	//% weight=72
-	export function four_sensor_trackingValue(): number {
-	  let result = 0;
-	  pins.digitalWritePin(outPin1, 0)
-	  pins.digitalWritePin(outPin2, 0)
-	  pins.digitalWritePin(outPin3, 0)
-	  pins.digitalWritePin(outPin4, 0)
-	  if (pins.digitalReadPin(outPin1) == 1) {
-		result = 1 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	  if (pins.digitalReadPin(outPin2) == 1) {
-		result = 2 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	  if (pins.digitalReadPin(outPin3) == 1) {
-		result = 4 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	   if (pins.digitalReadPin(outPin4) == 1) {
-		result = 8 | result;
-	  }else {
-		result = 0 | result;
-	  }
-	  return result;
-	}
 }
