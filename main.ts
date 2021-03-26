@@ -5,6 +5,52 @@ load dependency
 "motorbit": "file:../pxt-motorbit"
 */
 
+enum RgbColors {
+    //% block=red
+    MT_Red = 0xFF0000,
+    //% block=orange
+    MT_Orange = 0xFFA500,
+    //% block=yellow
+    MT_Yellow = 0xFFFF00,
+    //% block=green
+    MT_Green = 0x00FF00,
+    //% block=blue
+    MT_Blue = 0x0000FF,
+    //% block=indigo
+    MT_Indigo = 0x4b0082,
+    //% block=violet
+    MT_Violet = 0x8a2be2,
+    //% block=purple
+    MT_Purple = 0xFF00FF,
+    //% block=white
+    MT_White = 0xFFFFFF,
+    //% block=black
+    MT_Black = 0x000000
+}
+
+enum Offset {
+    //% block=one
+    ONE = 0,
+    //% block=two
+    TWO = 1,
+    //% block=three
+    THREE = 2,
+    //% block=four
+    FOUR = 3
+}
+
+enum ColorEffect {
+    //% block=none
+    MT_None = 0x00,
+    //% block=breathing
+    MT_Breathing = 0x01,
+    //% block=rotate
+    MT_Rotate = 0x02,
+    //% block=flash
+    MT_Flash = 0x03
+}
+
+
 //% color="#EE6A50" weight=10 icon="\uf085"
 namespace motorbit {
 const PCA9685_ADDRESS = 0x40
@@ -441,5 +487,26 @@ export function MotorRunDualDelay(motor1: Motors, speed1: number, motor2: Motors
 	basic.pause(delay * 1000);
 	MotorRun(motor1, 0);
     MotorRun(motor2, 0);
+    }
+
+//% blockId="motorbit_rus04" block="On-board Ultrasonic part %index show color %rgb effect %effect" 
+//% weight=78
+export function motorbit_rus04(index: RgbUltrasonics, rgb: RgbColors, effect: ColorEffect): void {
+    sensors.rus04_rgb(DigitalPin.P16, 0, index, rgb, effect);
+}
+    
+//% blockId=Ultrasonic_reading_distance block="On-board Ultrasonic reading distance"
+//% weight=77
+
+export function Ultrasonic_reading_distance(): number {
+    return sensors.Ultrasonic(DigitalPin.P2);
+}
+
+
+//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index color %rgb Effect %effect"
+//% weight=76
+
+export function Setting_the_on_board_lights(offset: Offset,rgb: RgbColors, effect: ColorEffect): void {
+ sensors.rus04_rgb(DigitalPin.P16, offset, 0, rgb, effect);
 }
 }
