@@ -5,28 +5,7 @@ load dependency
 "motorbit": "file:../pxt-motorbit"
 */
 
-enum RgbColors {
-    //% block=red
-    MT_Red = 0xFF0000,
-    //% block=orange
-    MT_Orange = 0xFFA500,
-    //% block=yellow
-    MT_Yellow = 0xFFFF00,
-    //% block=green
-    MT_Green = 0x00FF00,
-    //% block=blue
-    MT_Blue = 0x0000FF,
-    //% block=indigo
-    MT_Indigo = 0x4b0082,
-    //% block=violet
-    MT_Violet = 0x8a2be2,
-    //% block=purple
-    MT_Purple = 0xFF00FF,
-    //% block=white
-    MT_White = 0xFFFFFF,
-    //% block=black
-    MT_Black = 0x000000
-}
+
 
 enum Offset {
     //% block=one
@@ -38,18 +17,6 @@ enum Offset {
     //% block=four
     FOUR = 3
 }
-
-enum ColorEffect {
-    //% block=none
-    MT_None = 0x00,
-    //% block=breathing
-    MT_Breathing = 0x01,
-    //% block=rotate
-    MT_Rotate = 0x02,
-    //% block=flash
-    MT_Flash = 0x03
-}
-
 
 //% color="#EE6A50" weight=10 icon="\uf085"
 namespace motorbit {
