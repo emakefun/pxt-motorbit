@@ -482,4 +482,13 @@ export function close_the_on_board_lights(offset: Offset): void {
  sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, RgbColors.Black, rgb_ColorEffect.None);
 }
 	
+//% blockId=close_all_the_on_board_lights block="close all the on-board lights"
+//% weight=74
+export function close_all_the_on_board_lights(): void {
+ sensors.board_rus04_rgb(DigitalPin.P16, 0, 0, RgbColors.Black, rgb_ColorEffect.None);
+ sensors.board_rus04_rgb(DigitalPin.P16, 1, 0, RgbColors.Black, rgb_ColorEffect.None);
+ sensors.board_rus04_rgb(DigitalPin.P16, 2, 0, RgbColors.Black, rgb_ColorEffect.None);
+ sensors.board_rus04_rgb(DigitalPin.P16, 3, 0, RgbColors.Black, rgb_ColorEffect.None);
+}
+	
 }
