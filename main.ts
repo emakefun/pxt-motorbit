@@ -472,8 +472,14 @@ export function Ultrasonic_reading_distance(): number {
 
 //% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index color %rgb Effect %effect"
 //% weight=76
-
 export function Setting_the_on_board_lights(offset: Offset,rgb: RgbColors, effect: rgb_ColorEffect): void {
  sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, rgb, effect);
 }
+	
+//% blockId=close_the_on_board_lights block="close the on-board lights %index color"
+//% weight=75
+export function close_the_on_board_lights(offset: Offset): void {
+ sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, RgbColors.Black, rgb_ColorEffect.None);
+}
+	
 }
