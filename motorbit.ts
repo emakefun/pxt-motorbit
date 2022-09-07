@@ -192,7 +192,7 @@ function stopMotor(index: number) {
  * @param index Servo Channel; eg: S1
  * @param degree [0-180] degree of servo; eg: 0, 90, 180
 */
-//% blockId=motorbit_servo block="Servo|%index|degree %degree=protractorPicker"
+//% blockId=motorbit_servo block="Servo|%index|degree|%degree"
 //% weight=100
 //% degree.defl=90
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -439,7 +439,7 @@ export function Ultrasonic_reading_distance(): number {
 }
 
 
-//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index color"
+//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index|color|%rgb"
 //% weight=76
 export function Setting_the_on_board_lights(offset: Offset,rgb: RgbColors): void {
  sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, rgb, rgb_ColorEffect.None);
