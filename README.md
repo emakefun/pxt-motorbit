@@ -258,3 +258,15 @@ import motor
 motorbit = motor.init()
 motorbit.servo(1, 90, speed=5)
 ```
+
+## License
+
+MIT
+
+## Supported targets
+
+* for PXT/microbit
+
+## Contact us
+
+Tel: +86 13242991035

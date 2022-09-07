@@ -1,12 +1,8 @@
 /*
-ken@emakefun.com
 modified from pxt-servo/servodriver.ts
 load dependency
 "motorbit": "file:../pxt-motorbit"
 */
-
-
-
 enum Offset {
     //% block=one
     ONE = 0,
@@ -18,7 +14,7 @@ enum Offset {
     FOUR = 3
 }
 
-//% color="#EE6A50" weight=10 icon="\uf085"
+//% color="#EE6A50" weight=10 icon="\uf63b"
 namespace motorbit {
 const PCA9685_ADDRESS = 0x40
 const MODE1 = 0x00
@@ -211,26 +207,6 @@ export function Servo(index: Servos, degree: number): void {
 }
 
 /**
- * Geek Servo
- * @param index Servo Channel; eg: S1
- * @param degree [-45-225] degree of servo; eg: -45, 90, 225
-*/
-//% blockId=motorbit_gservo block="Geek Servo|%index|degree %degree=protractorPicker"
-//% weight=98
-//% blockGap=50
-//% degree.defl=90
-//% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-export function GeekServo(index: Servos, degree: number): void {
-    if (!initialized) {
-        initPCA9685()
-    }
-    // 50hz: 20,000 us
-    let v_us = ((degree - 90) * 20 / 3 + 1500) // 0.6 ~ 2.4
-    let value = v_us * 4096 / 20000
-    setPwm(index + 7, 0, value)
-}
-
-/**
  * Servo Execute
  * @param index Servo Channel; eg: S1
  * @param degree1 [0-180] degree of servo; eg: 0, 90, 180
@@ -267,7 +243,6 @@ export function Servospeed(index: Servos, degree1: number, degree2: number, spee
     }
 }
 
-
 //% blockId=motorbit_stepper_degree block="Stepper 28BYJ-48|%index|degree %degree"
 //% weight=91
 export function StepperDegree(index: Steppers, degree: number): void {
@@ -279,7 +254,6 @@ export function StepperDegree(index: Steppers, degree: number): void {
     basic.pause(10240 * degree / 360);
     MotorStopAll()
 }
-
 
 //% blockId=motorbit_stepper_turn block="Stepper 28BYJ-48|%index|turn %turn"
 //% weight=90
@@ -350,10 +324,8 @@ export function StpCarTurn(turn: number, diameter: number, track: number): void 
     MotorStopAll()
 }
 
-
-
 //% blockId=motorbit_stop_all block="Motor Stop All"
-//% weight=85
+//% weight=81
 //% blockGap=50
 export function MotorStopAll(): void {
     if (!initialized) {
@@ -365,13 +337,13 @@ export function MotorStopAll(): void {
 }
 
 //% blockId=motorbit_stop block="Motor Stop|%index|"
-//% weight=84
+//% weight=82
 export function MotorStop(index: Motors): void {
     MotorRun(index, 0);
 }
 
 //% blockId=motorbit_motor_run block="Motor|%index|speed %speed"
-//% weight=82
+//% weight=86
 //% speed.min=-255 speed.max=255
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
 export function MotorRun(index: Motors, speed: number): void {
@@ -405,7 +377,7 @@ export function MotorRun(index: Motors, speed: number): void {
  * @param delay seconde delay to stop; eg: 1
 */
 //% blockId=motorbit_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
-//% weight=81
+//% weight=85
 //% speed.min=-255 speed.max=255
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
 export function MotorRunDelay(index: Motors, speed: number, delay: number): void {
@@ -413,8 +385,6 @@ export function MotorRunDelay(index: Motors, speed: number, delay: number): void
     basic.pause(delay * 1000);
     MotorRun(index, 0);
 }
-
-
 
 /**
  * Execute two motors at the same time
@@ -424,7 +394,7 @@ export function MotorRunDelay(index: Motors, speed: number, delay: number): void
  * @param speed2 [-255-255] speed of motor; eg: 150, -150
 */
 //% blockId=motorbit_motor_dual block="Motor|%motor1|speed %speed1|%motor2|speed %speed2"
-//% weight=80
+//% weight=84
 //% inlineInputMode=inline
 //% speed1.min=-255 speed1.max=255
 //% speed2.min=-255 speed2.max=255
@@ -434,7 +404,6 @@ export function MotorRunDual(motor1: Motors, speed1: number, motor2: Motors, spe
     MotorRun(motor2, speed2);
 }
 
-
 /**
  * Execute two motors at the same time
  * @param motor1 First Motor; eg: A01A02, B01B02
@@ -443,7 +412,7 @@ export function MotorRunDual(motor1: Motors, speed1: number, motor2: Motors, spe
  * @param speed2 [-255-255] speed of motor; eg: 150, -150
 */
 //% blockId=motorbit_motor_dualDelay block="Motor|%motor1|speed %speed1|%motor2|speed %speed2|delay %delay|s "
-//% weight=79
+//% weight=83
 //% inlineInputMode=inline
 //% speed1.min=-255 speed1.max=255
 //% speed2.min=-255 speed2.max=255
@@ -470,10 +439,10 @@ export function Ultrasonic_reading_distance(): number {
 }
 
 
-//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index color %rgb Effect %effect"
+//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index color"
 //% weight=76
-export function Setting_the_on_board_lights(offset: Offset,rgb: RgbColors, effect: rgb_ColorEffect): void {
- sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, rgb, effect);
+export function Setting_the_on_board_lights(offset: Offset,rgb: RgbColors): void {
+ sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, rgb, rgb_ColorEffect.None);
 }
 	
 //% blockId=close_the_on_board_lights block="close the on-board lights %index color"

@@ -3,18 +3,24 @@
     "version": "1.0.0",
     "description": "motorbit emakefun",
     "dependencies": {
-        "core": "*",
-        "Sensorbit": "github:emakefun/pxt-sensorbit"
+        "core": "*"
     },
     "files": [
         "README.md",
-        "main.ts",
+        "motorbit.ts",
         "_locales/zh/motorbit-strings.json"
     ],
     "testFiles": [
         "test.ts"
     ],
+    "targetVersions": {
+        "target": "5.0.12",
+        "targetId": "microbit"
+    },
     "public": true,
     "license": "MIT",
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "supportedTargets": [
+        "microbit"
+    ]
 }
