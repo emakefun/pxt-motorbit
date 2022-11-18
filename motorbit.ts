@@ -56,10 +56,10 @@ export enum Servos {
 }
 
 export enum Motors {
-    A01A02 = 0x4,
-    B01B02 = 0x3,
-    A03A04 = 0x2,
-    B03B04 = 0x1
+    M1 = 0x1,
+    M2 = 0x2,
+    M3 = 0x3,
+    M4 = 0x4
 }
 
 export enum Steppers {
