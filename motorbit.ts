@@ -14,7 +14,7 @@ enum Offset {
     FOUR = 3
 }
 
-//% color="#EE6A50" weight=10 icon="\uf63b"
+//% color="#EE6A50" weight=10 icon="\uf0d1"
 namespace motorbit {
 const PCA9685_ADDRESS = 0x40
 const MODE1 = 0x00
