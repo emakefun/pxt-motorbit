@@ -1,3 +1,5 @@
+
+
 #  Motor:Bit产品介绍
 
 [English](README.md) 中文版
@@ -10,19 +12,19 @@
 
 * [电机功能说明](##电机功能说明) 
 
-* [ 扩展板各单元模块详解](# 扩展板各单元模块详解) 
+扩展板各单元模块详解
 
-    * [电源供电口](##电源供电口)
-    * [蜂鸣器](##蜂鸣器)
-    * [红外接收](##红外接收)
-    * [RGB炫彩灯](##RGB炫彩灯)
-    * [直流电机接口](##直流电机接口)
-    * [8路舵机接口](##8路舵机接口)
-    * [步进电机接口](##步进电机接口)
-    * [RGB超声波](##RGB超声波)
-    * [8Pin IO口引出](##8Pin IO口引出)
-    * [I2C接口](##I2C接口)
-    * [电压引脚](##电压引脚)
+* [电源供电口](##电源供电口)
+* [蜂鸣器](##蜂鸣器)
+* [红外接收](##红外接收)
+* [RGB炫彩灯](##RGB炫彩灯)
+* [直流电机接口](##直流电机接口)
+* [8路舵机接口](##8路舵机接口)
+* [步进电机接口](##步进电机接口)
+* [RGB超声波](##RGB超声波)
+* [8Pin IO口引出](##8Pin IO口引出)
+* [I2C接口](##I2C接口)
+* [电压引脚](##电压引脚)
 * [ 导入软件包](## 导入软件包) 
 * [ 程序下载](## 程序下载) 
 Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开发的驱动电机，舵机，步进电机的一款多功能电机驱动扩展板。Micro:Bit V2.0解决了市面上同类驱动板支持单节3.7V电池驱动力严重不够问题。本驱动板采用控制电路电源和舵机电源分开，单独供电方案，使用大电流输出的电源芯片对舵机独立供电，支持DC(6~15V)电压输入，驱动芯片采用4颗大电流驱动芯片，最大驱动电流达4A，轻松同时驱动4个24V直流马达或者30暴力高速马达。舵机也可以通过外部电源独立供电，同时可以支持8个舵机同时控制。板子采用可选择直插和卧插两种方式，直插可以兼容掌控板。安装孔兼容乐高，可以非常方便安装在自己创意设计中。完善的库支持，配套开发有MakeCode、Scratch3.0、MicroPython库和教程。
@@ -120,7 +122,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 
 ## RGB炫彩灯
-![motorbit_RGB_zh](motorbit/RGB.PNG)
+![motorbit_RGB_zh](motorbit/RGB.png)
 
 * Motor:Bit V1.0/V2.0板载4个RGB全彩灯，连接在Micro:Bit主板的P16引脚，可以通过对P16引脚编程控制四个RGB灯亮灭和颜色。
 > 板载RGB实验例程
@@ -148,7 +150,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 > 实验结果：当Micro:Bit主板的按下A键、接在M1(A01A02)的电机顺时针旋转，按下B键，电机反方向旋转 [直流电机实验源码](https://makecode.microbit.org/_6pTH0XCLjYdb)
 
 ## 8路舵机接口
-![motorbit_servo_zh](motorbit/Servo.PNG)
+![motorbit_servo_zh](./motorbit/Servo.png)
 
 * Motor:Bit V1.0/V2.0 同时支持驱动8路PWM舵机
 * Motor:Bit V1.0/V2.0  舵机引脚的蓝色插口代表输出pwm信号的引脚、连接三线舵机的PWM输入信号线，红色插口代表电源正极、连接三线舵机的电源正极线，黑色插口代表电源GND极、连接三线舵机的电源负极线
@@ -186,7 +188,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 
 ## RGB超声波
-![motorbit_RGBCSB_zh](motorbit/RGB_ultrasonic.PNG)
+![motorbit_RGBCSB_zh](motorbit/RGB_ultrasonic.png)
 
 * 1个PH2.0-4Pin Rgb超声波（RUS-04)模块接口，该接口有两个用途，一方面可以作为超声波的TX和RX引脚口，另一方面也可以控制超声波模块的RGB彩灯，让超声波模块更加炫彩灵性。
 * RGB超声波的IO引脚接在引脚的P2接口，RGB口与RGB灯口对应：RGB超声波的RGB灯是扩展板灯的延伸，都是通过P16引脚控制，控制原理与控制扩展板RGB灯相同，RGB超声波内含有六个RGB灯，左右探头各三个。
@@ -201,7 +203,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 > 当超声波检测到前方距离小于10cm时，超声波的RGB灯 **全部**会显示**靛蓝**，并且有**闪烁**的特效  [RGB超声波实验源码](https://makecode.microbit.org/_TUqXfUJ2c19c)
 
 ## 8Pin IO口引出
-![motorbit_Pin_zh](motorbit/IO.PNG)
+![motorbit_Pin_zh](motorbit/IO.png)
 
 * Motor:Bit V1.0/V2.0 有8个引出的IO口，黑色引脚表示电源负极、红色引脚表示电源正极，蓝色表示IO信号口
 * Motor:Bit V1.0/V2.0 引出的引脚是P0\P1\P2\P8\P12\P13\P14\P15
@@ -228,7 +230,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 ![image-20200305102121549](motorbit/motorbit_V_PCB_zh.jpg)
 
-* motor:bit 扩展板设计有三种电压引脚，分别为3V3、5V、VIN(+，没有经过降压的电压接口）
+* Motor:Bit 扩展板设计有三种电压引脚，分别为3V3、5V、VIN(+，没有经过降压的电压接口）
 * 对于8个IO口、可以通过IO口跳线帽进行选择不同的电压：对于8个PWM舵机接口，可以通过跳线帽选择不同的电压，需要注意，当选择5V的时候，供电来源于开关选择的电源直接相关，选择‘ +’   的时候，供电来源为接线柱电源，与开关选择无关
 
 
