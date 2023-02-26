@@ -195,6 +195,7 @@ function stopMotor(index: number) {
 //% blockId=motorbit_servo block="Servo|%index|degree|%degree"
 //% weight=100
 //% degree.defl=90
+//% degree.min=0 degree.max=180
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
 export function Servo(index: Servos, degree: number): void {
     if (!initialized) {

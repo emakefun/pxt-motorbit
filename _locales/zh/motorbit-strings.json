@@ -1,5 +1,5 @@
 {
-    "motorbit|block": "MotorBit",
+    "motorbit|block": "Motor:Bit",
     "motorbit.Servo|block": "舵机|%index|角度|%degree",
     "motorbit.Servospeed|block": "舵机 Servo|%index|开始角度 %degree1|结束角度 %degree2|旋转速度 %speed",
     "motorbit.StepperDegree|block": "步进电机 28BYJ-48|%index|角度 %degree",
