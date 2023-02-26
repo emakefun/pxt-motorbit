@@ -1,66 +1,63 @@
 
 
-#  Motor:Bit产品介绍
+#  Motor:Bit Product Introduction
 
 [English](README.md) 中文版
 
-- [产品特色](#产品特色) 
-- [产品实物图](#产品实物图)
-- [硬件接口介绍](#硬件接口介绍) 
-- [电机功能说明](#电机功能说明) 
-- [扩展板各单元模块详解](#扩展板各单元模块详解) 
-    - [电源供电口](#电源供电口)
-    - [蜂鸣器](#蜂鸣器)
-    - [红外接收](#红外接收)
-    - [RGB炫彩灯](#RGB炫彩灯)
-    - [直流电机接口](#直流电机接口)
-    - [8路舵机接口](#8路舵机接口)
-    - [步进电机接口](#步进电机接口)
-    - [RGB超声波](#RGB超声波)
-    - [8Pin_IO口引出](#8Pin_IO口引出)
-    - [I2C接口](#I2C接口)
-    - [电压引脚](#电压引脚)
-- [导入软件包](#导入软件包)
-- [程序下载](#程序下载)
+- [Product Feature](#产品特色) 
+- [Product Photo Show](#产品实物图)
+- [Hardware Interface Introduction](#硬件接口介绍) 
+- [Motor Function Description](#电机功能说明) 
+- [Description Of Each Unit Module Of The Expansion Board](#扩展板各单元模块详解) 
+    - [Power Supply Port](#电源供电口)
+    - [Buzzer](#蜂鸣器)
+    - [Infrared Receiver](#红外接收)
+    - [RGB Colourful Light](#RGB炫彩灯)
+    - [Dc Motor Interface](#直流电机接口)
+    - [8 Way Steering Engine Interface](#8路舵机接口)
+    - [Stepper Motor Interface](#步进电机接口)
+    - [RGB Ultrasonic Wave](#RGB超声波)
+    - [8Pin IO Port Leads Out](#8Pin_IO口引出)
+    - [I2C Port](#I2C接口)
+    - [Voltage Pin](#电压引脚)
+- [Import Software Package](#导入软件包)
+- [Program Download](#程序下载)
 - [FAQ](#FAQ) 
 
-Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开发的驱动电机，舵机，步进电机的一款多功能电机驱动扩展板。Micro:Bit V2.0解决了市面上同类驱动板支持单节3.7V电池驱动力严重不够问题。本驱动板采用控制电路电源和舵机电源分开，单独供电方案，使用大电流输出的电源芯片对舵机独立供电，支持DC(6~15V)电压输入，驱动芯片采用4颗大电流驱动芯片，最大驱动电流达4A，轻松同时驱动4个24V直流马达或者30暴力高速马达。舵机也可以通过外部电源独立供电，同时可以支持8个舵机同时控制。板子采用可选择直插和卧插两种方式，直插可以兼容掌控板。安装孔兼容乐高，可以非常方便安装在自己创意设计中。完善的库支持，配套开发有MakeCode、Scratch3.0、MicroPython库和教程。
+Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and the development of a drive motor, steering gear, stepper motor of a multifunctional motor drive expansion board.Micro:Bit V2.0 solves the problem that similar driving boards on the market support a single 3.7V battery driving force is seriously insufficient.The drive board adopts the control circuit power supply and the steering gear power supply separate, separate power supply scheme,adopts power chip with large current output to supply power independently to the steering gear,supports DC(6-15 V) input voltage,The driver chip adopts 4 high current driver chips,maximum driving current up to 4A,Easily drive four 24V DC motors or 30 high speed motors simultaneously.The steering gear can also be independently powered by an external power source,can support 8 steering gear control at the same time.The board can be inserted directly or horizontally,inserted directly of method is compatible with control board.Mounting hole compatible with Lego.Can be very convenient to install in their own creative design.Complete library support,Accompanying developments include MakeCode、Scratch3.0、MicroPython libraries and tutorials.
 
-## 产品特色
-| 特点 | Motor:Bit V1.0|Motor:Bit V2.0|
+## Product Feature
+| Feature | Motor:Bit V1.0|Motor:Bit V2.0|
 | ---- | -- | -- |
-| 板载4个RGB   | √ | √ |
-| 无缘蜂鸣器    | √ | √ |
-| 红外接收头    | √ | √ |
-| 兼容乐高孔    | √ | √ |
-| 板载4个RGB   | √ | √ |
-| 无缘蜂鸣器    | √ | √ |
-| I2C接口      | √ （两个PH2.0接口） | √（一个PH2.0接口） |
-| RGB超声波接口 | √ | √ |
-| 4路电机      | √ （最大输出电流1.2A）| √（最大输出电流4A） |
-| 8路舵机      | √ | √ |
-| 2路4线步进电机      | √ | √ |
-| 板载电池盒    | √ | × |
-| 板载充电电路    | √ | × |
-| 板载电池盒    | √ | × |
-| IO口多种电压选择 | × | √  |
-| PCB板厚度   | 1.6mm           | 1.6mm           |
-| M4定位孔直径 | 4.6mm，兼容乐高   | 4.6mm，兼容乐高 |
-| 产品的尺寸   | 80mm×56mm×12mm  | 80mm×57mm×12mm  |
-| 净重        | 37.2g          | 37.2g           |
-| 供电电压     | 3.7~4.2V        | 6~15V           |
-| DC头直径    | 无 | 3.5mm           |
+| Four Onboard RGB   | √ | √ |
+| Passive Buzzer    | √ | √ |
+| Infrared Receiver Module    | √ | √ |
+| Compatible With Lego Holes    | √ | √ |
+|  I2C port      | √ （Two PH2.0 interfaces） | √（One PH2.0 interface） |
+| RGB Ultrasonic Interface| √ | √ |
+| Four-way  Motor      | √ （Maximum output current 1.2A）| √（Maximum output current 4A） |
+| 8 Way Steering Gear      | √ | √ |
+| 2-way 4-wire Stepper Motor      | √ | √ |
+| Onboard Battery Case    | √ | × |
+| Onboard Charging Circuit    | √ | × |
+| IO Port Multiple Voltage Options | × | √  |
+| PCB Board Thickness   | 1.6mm           | 1.6mm           |
+| M4 Diameter of the Positioning Hole | 4.6mm，compatible with Lego   | 4.6mm，compatible with Lego |
+| Size of Product   | 80mm×56mm×12mm  | 80mm×57mm×12mm  |
+| Net Weight        | 37.2g          | 37.2g           |
+| Supply Voltage     | 3.7~4.2V        | 6~15V           |
+| Diameter of DC Plug    | None | 3.5mm           |
 
 
-## 产品实物图
+## Product Photo Show
 ### Motor:Bit V1.0
 ![image](motorbit/MotorBit_V1.0.png)
 ### Motor:Bit V2.0
 ![image](motorbit/MotorBit_V2.0.png)
 
-## 硬件接口介绍
+## Hardware Interface Introduction
 
-### 正面
+### Front View
 ### Motor:Bit V1.0
 ![image-20200305102542741](motorbit/MotorBit_V1.0_mark.png)
 
@@ -69,45 +66,44 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 ![image-20200305102542741](motorbit/MotorBit_V2.0_mark.png)
 
 
-# 扩展板各单元模块详解
+# Description Of Each Unit Module Of The Expansion Board
 
-## 电源供电口
+## Power Supply Port
 ![motorbit_DC_PCB1_zh](motorbit/Power.png)
-- Motor:Bit V1.0 有两个供电接口，一个PH2.0接口( + 表示接电源正极线：— 表示接电源负极线)，一个14500电池盒( + 表示电池正极：— 表示电池负极)。两个接口的输入电压为3.7V~4.2V
+- Motor:Bit V1.0 has two power supply ports,one PH2.0 interface(symbol '+' indicates the positive power line, symbol '-' Indicates the negative power line ),one 14,500 battery case(symbol '+' indicates the positive power line, symbol '-' Indicates the negative power line).The input voltage of the two ports ranges from 3.7V to 4.2V.
 
-- Motor:Bit V1.0  充电指示灯闪烁表示正在充电，常亮表示充满了
-                                电池反接指示灯长亮时表示电池接反了
+- Motor:Bit V1.0  If the charging indicator blinks, it is charging. If it is steady on, it is full.If the battery reverse connection indicator is on, the battery is reversed
 
-- Motor:Bit V2.0 有两个供电接口，一个接线柱类型( + 表示接电源正极线：— 表示接电源负极线)，一个DC头类型。在使用接线柱供电时，注意电源正负极的连接方向，扩展板接线柱的 + 符号所代表的接线口表示应该连接电源正极线、— 符号所代表的接线口表示应该连接电源负极线
+- Motor:Bit V2.0 has two power supply ports,one terminal type(symbol '+' indicates the positive power line, symbol '-' Indicates the negative power line ),one DC header type.Note the direction of the positive and negative terminals of the power supply when using terminals for power supply,The port represented by the + symbol on the expansion board terminal indicates that the positive power line should be connected, and the port represented by the - symbol indicates that the negative power line should be connected.
 
--  Motor:Bit V2.0:拨动开关向右拨动到OFF(EXT)时，motor:bit 扩展板是通过接线柱供电的，此时，DC头供电接口无效：拨动开关向左拨动到ON(DC)时，motor:bit 扩展板是通过DC头接口供电，此时若VSS接线帽接在5V上，接线柱供电接口无效，若VSS接线帽接在 + 上，那么VSS的供电是通过接在接线柱的电源直接供电，从而实现一块板、两个供电源
+-  Motor:Bit V2.0:When the toggle switch is flipped to the right to OFF(EXT), the motor:bit expansion board is powered by the terminal. At this time, the DC head power supply interface is invalid;When the toggle switch is flipped to the left to ON(DC), the motor:bit expansion board is powered by the DC head interface. At this time, if the VSS wiring cap is connected to 5V, the power supply interface of the terminal post is invalid. If the VSS wiring cap is connected to symbol '+', the VSS is powered directly by the power supply connected to the terminal post, so as to realize one board and two power supply sources.
 
-- Motor:Bit V2.0扩展板包含3V3，5V电源引脚，此外，还设计有一个VIN引脚；VIN引脚通过开关与供电源直接连接，VIN引脚于开关选择的供电源连接
-#### 注：Motor:Bit扩展板的红色引脚，皆为正极供电引出脚：黑色引脚皆为接地GND引脚
-
+- The Motor:Bit V2.0 expansion board contains a 3V3, 5V power pin and, in addition, is designed with a VIN pin；The VIN pin is directly connected to the power supply source through the switch, and the VIN pin is connected to the power supply source selected by the switch.
+#### Note：The red pins of the Motor:Bit expansion board are all positive power supply leading pins. The black pins are all ground GND pins
 
 
 
-## 蜂鸣器
+
+## Buzzer
 ![magicbit_buzzer_zh](motorbit/buzzer.png)
 
-* Motor:Bit V1.0/V2.0板载无源蜂鸣器接线引脚为P0
-* Motor:Bit V1.0/V2 .0是通过拨码开关与Micro:Bit主板的P0引脚进行连接和断开的，当拨动到关闭时，引脚P0不能控制板载蜂鸣器，此时P0引脚可以作为普通IO引脚使用。
-> 无源蜂鸣器播放音乐 例程实验
+* Motor:Bit V1.0/V2.0 The connection pin of the onboard passive buzzer is P0
+* The Motor:Bit V1.0/ V2.0 is connected and disconnected from the P0 pin of the Micro:Bit motherboard via a dip switch. When toggle to off, pin P0 cannot control the onboard buzzer, at which point pin P0 can be used as a normal IO pin。
+> The passive buzzer plays music Routine Experiment
 
 ![motorbit_buzzer_code_zh](motorbit/motorbit_buzzer_code_zh.png)
 
-> 实验现象为：当按下Micro:Bit主板A按键播放 生日歌： 当B按键按下时，播放 铃声[蜂鸣器实验源码](https://makecode.microbit.org/_7T6XPUbgYhcb)
+> The experimental phenomenon ：When pressing Micro:Bit motherboard A key to play Happy birthday song： When the B key is pressed, the ringtone is played[Buzzer experiment source code](https://makecode.microbit.org/_7T6XPUbgYhcb)
 
-## 红外接收
+## Infrared Receiver
 
-#### **MakeCode红外扩展库: https://github.com/emakefun/pxt-motorbit
+#### **MakeCode Infrared Extended Library: https://github.com/emakefun/pxt-motorbit
 
 ![motorbit_IR_zh](motorbit/IR.png)
 
-* Motor:Bit V1.0/V2.0 板载红外接收头接线引脚为P5
-* 红外接收头，是通过拨码开关与microbit主板的P5引脚进行连接和断开的，当拨动到关闭时，引脚P5不能控制红外接收头，此时P0引脚可以作为普通IO引脚使用。
-> 红外接收实验例程
+* Motor:Bit V1.0/V2.0 on-board infrared receiver is pin P5
+* The infrared receiving head is connected and disconnected with the P5 pin of the microbit motherboard through the dip switch. When toggled to off, pin P5 cannot control the infrared receiving head. At this time, pin P0 can be used as an ordinary IO pin.
+> Infrared Receiving Experiment Routine
 
 ![motorbit_IR_code_zh](motorbit/irRemote_1.png)
 
@@ -115,134 +111,134 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 ![motorbit_IR_code_zh](motorbit/irRemote_3.png)
 
-> 实验现象为：红外遥控器按键`A`按下时，Micro:Bit主板显示字母 “A”，按键B按下时、Micro:Bit主板显示字母“B”，按键C按下时、Micro:Bit主板显示字母“C”   [点击查看红外实验源码](https://makecode.microbit.org/_eAv9yiUC2VV3)。当需要通过红外遥控实现其他功能时，可以把显示字符串换成对应的逻辑。
+> The experimental phenomenon：Infrared remote control key 'A' pressed, Micro:Bit motherboard display letter "A", key B pressed down, Micro:Bit motherboard display letter "B", key C pressed down, Micro:Bit motherboard display letter "C"   [Click to view the infrared experiment source code](https://makecode.microbit.org/_eAv9yiUC2VV3)。When other functions need to be realized through infrared remote control, you can change the display string into the corresponding logic.
 
 
-## RGB炫彩灯
+## RGB Colourful Light
 ![motorbit_RGB_zh](motorbit/RGB.png)
 
-* Motor:Bit V1.0/V2.0板载4个RGB全彩灯，连接在Micro:Bit主板的P16引脚，可以通过对P16引脚编程控制四个RGB灯亮灭和颜色。
-> 板载RGB实验例程
+* Motor:Bit V1.0/V2.0 onboard 4 RGB full color lights, connected to the P16 pin of the Micro:Bit motherboard, you can control the four RGB lights on/off and color by programming the P16 pin.
+> Onboard RGB Experiment Routine
 
 ![motorbit_RGB_code_zh](motorbit/motorbit_RGB_code_zh.png)
 
-> RGB流水灯实验设计 ，实验结果为：板载RGB灯红绿蓝三色间隔1s显示  [RGB实验源码](https://makecode.microbit.org/_XD8L8u8s77cD) 
+> Experimental design of RGB flow lamp ,experimental result：Onboard RGB lights display red, green and blue colors at a interval of 1s  [RGB Experimental source code](https://makecode.microbit.org/_XD8L8u8s77cD) 
 
 
-## 直流电机接口
+## DC Motor Interface
 
 ![motorbit_DCmotor_zh](motorbit/DC_motor.png)
 
-* Motor:Bit V1.0/V2.0扩展板设计有4个PH2.0直流电机接线柱接口，分别为：M1,M2,M3,M4
-* Motor:Bit V1.0扩展板也可以从步进电机的排针位置接M1(A01,A02),M2(A03,A04)和M3(B01,B02)M4(B03,B0)
-* Motor:Bit V2.0扩展板也可以从步进电机的接线端子位置接M1(A01,A02),M2(A03,A04)和M3(B01,B02)M4(B03,B04)
-> 控制直流电机例程实验
+* Motor:Bit V1.0/V2.0 expansion board is designed with four PH2.0 DC Motor connector interfaces: M1,M2,M3,M4
+* Motor:Bit V1.0 expansion board can also be connected to M1(A01,A02),M2(A03,A04) and M3(B01,B02)M4(B03,B0) from the pin header position of stepper motor 
+* Motor:Bit V2.0 expansion board can also be connected to M1(A01,A02),M2(A03,A04) and M3(B01,B02)M4(B03,B04) from the terminal position of the stepper Motor.
+> Control DC motor Routine Experiment
 
 ![motorbit_DCmotor_code_zh](motorbit/motorbit_DCmotor_code_zh.png)
 
->实物接线图(DC供电口供电，开关拨动到on(DC))
+>Physical wiring diagram (DC power supply port, switch to on(DC))
 
 ![motorbit_DCmotor_zh](motorbit/motorbit_DCmotor_zh.png)
 
-> 实验结果：当Micro:Bit主板的按下A键、接在M1(A01A02)的电机顺时针旋转，按下B键，电机反方向旋转 [直流电机实验源码](https://makecode.microbit.org/_6pTH0XCLjYdb)
+> Experimental result：When the Micro:Bit motherboard A key is pressed, the motor connected to M1(A01A02) rotates clockwise, press the B key, the motor rotates in the opposite direction [Dc motor experiment source code](https://makecode.microbit.org/_6pTH0XCLjYdb)
 
-## 8路舵机接口
+## 8 way steering gear interface
 ![motorbit_servo_zh](./motorbit/Servo.png)
 
-* Motor:Bit V1.0/V2.0 同时支持驱动8路PWM舵机
-* Motor:Bit V1.0/V2.0  舵机引脚的蓝色插口代表输出pwm信号的引脚、连接三线舵机的PWM输入信号线，红色插口代表电源正极、连接三线舵机的电源正极线，黑色插口代表电源GND极、连接三线舵机的电源负极线
-* 插口为S1~S8，在使用时，根据实际连接的插口，在程序积木中进行选择
-* Motor:Bit V2.0驱动舵机时，可以通过跳线帽选择不同的供电方式。如果大舵机(例如：MG996等)的数量超过4个时，蓝色接线柱必须接外部电源为舵机供电（外部供电电压和电流需要根据舵机型号需要提供），且DC头也需要接电源为扩展板供电，拨动开关拨向ON端。
+* Motor:Bit V1.0/V2.0 Support drive 8 channel PWM steering gear at the same time
+* Motor:Bit V1.0/V2.0  The blue jack of the steering gear pin represents the pin output pwm signal and the PWM input signal line connected to the three-wire steering gear. The red jack represents the positive power terminal and the positive power line connected to the three-wire steering gear. The black jack represents the power GND pole and the negative power line connected to the three-wire steering gear.
+* The jacks are S1-S8. When in use, choose from the program building blocks according to the actual connected jacks.
+* When driving the steering gear, different power supply modes can be selected through the jumper cap.If the number of large steering gear (such as MG996) exceeds four, the blue terminal must be connected to an external power supply for the steering gear (the external power supply voltage and current must be provided according to the type of the steering gear), and the DC connector must also be connected to a power supply for the expansion board. Flip the switch to ON.
 
-> 实物连接图如下
+> Physical connection diagram is blow
 
 > ![motorbit_servo_zh](motorbit/servo_power_connect.png)
 
-> 舵机控制实验例程
+> Steering gear control experiment routine
 
 ![motorbit_servo_code_zh](motorbit/motorbit_servo_code_zh.png)
 
-> 实物连接图，例程实验选择S1引脚，实物连接也接在S1引脚
+> Physical connection diagram, routine experiment select S1 pin, physical connection is also connected to S1 pin
 
 ![motorbit_servo_zh](motorbit/motorbit_servo_zh.png)
-> 控制舵机转动到角度160，延时500ms，以速度3再转动到角度30，延时500ms，如此循环， [舵机实验源码](https://makecode.microbit.org/_Ea1cH3JwmehY)
+> Control the steering gear to rotate to Angle 160, delay 500ms, at speed 3 and then rotate to Angle 30, delay 500ms, and so on， [Steering gear experimental source code](https://makecode.microbit.org/_Ea1cH3JwmehY)
 
-## 步进电机接口
+## Stepper motor interface
 
 ![motorbit_motor_zh](motorbit/Stepper_motor.png)
 
-* 包含2路5线步进电机、可以同时连接控制两个步进电机。接线从左到右依次为蓝色线、粉色线、黄色线、橙色线、红色线。
-* 支持步进电机与TT马达同时使用，例如可以控制一个步进电机和两个直流电机（具体搭配可以根据需要来进行设定）
+* Contains two 5-wire stepper motors, which can be connected and controlled at the same time.The cables are blue, pink, yellow, orange and red from left to right。
+* Stepper motor and TT motor are supported at the same time. For example, one stepper motor and two DC motors can be controlled（Specific collocation can be set according to the needs）
 
-> 步进电机实验例程
+> Stepper motor experiment routine
 
 ![motorbit_motor_code_zh](motorbit/motorbit_stepper_code_zh.png)
 
-> 实物连接图，例程实验选择STPM1_2引脚，实物连接也接在相应的引脚，注意不同引脚接线的颜色
+> physical connection diagram, the routine experiment selects STPM1_2 pins, and the physical connection is also connected to the corresponding pins. Pay attention to the color of different pin connections
 
 ![motorbit_motor_zh](motorbit/motorbit_stepper_zh.png)
-> 步进电机驱动实验，实验结果为：接在STPM1_2引脚的步进电机转动50°，停止延时500ms，再转动，如此循环 ， [步进电机实验源码](https://makecode.microbit.org/_41a2Trhpfe55)
+> Stepper motor drive experiment，The experimental results are：The stepper motor connected to the STPM1_2 pin rotates 50°, stops the delay of 500ms, and then rotates again, and so on ， [Step motor experiment source code](https://makecode.microbit.org/_41a2Trhpfe55)
 
 
-## RGB超声波
+## RGB Ultrasonic
 ![motorbit_RGBCSB_zh](motorbit/RGB_ultrasonic.png)
 
-* 1个PH2.0-4Pin Rgb超声波（RUS-04)模块接口，该接口有两个用途，一方面可以作为超声波的TX和RX引脚口，另一方面也可以控制超声波模块的RGB彩灯，让超声波模块更加炫彩灵性。
-* RGB超声波的IO引脚接在引脚的P2接口，RGB口与RGB灯口对应：RGB超声波的RGB灯是扩展板灯的延伸，都是通过P16引脚控制，控制原理与控制扩展板RGB灯相同，RGB超声波内含有六个RGB灯，左右探头各三个。
-* 超声波的RGB彩灯，可以选择控制左右，显示的颜色和显示的特效，其中特效包括呼吸灯、旋转流星、闪烁。
-> 超声波RGB使用例程实验
+* one PH2.0-4Pin Rg module b Ultrasonic (RUS-04) module interface,The interface has two uses. On the one hand, it can be used as the pin of TX and RX of ultrasonic wave. On the other hand, it can also control the RGB color lights of ultrasonic wave to make the ultrasonic wave module more dazzling and intelligent.
+* The IO pin of RGB ultrasonic is connected to the P2 interface of the pin, and the RGB port corresponds to the RGB lamp port：RGB lamp of RGB ultrasonic  is an extension of the expansion board lamp, which is controlled by P16 pin. The control principle is the same as that of the control RGB lamp of expansion board . RGB ultrasonic contains six RGB lamps, with three left and right probes.
+* RGB color lights of ultrasonic , you can choose to control the left and right, display color and display effects, which include breathing lights, rotating meteors, flashing。
+> Ultrasonic RGB Experiment Routine
 
 ![motorbit_RGBCSB_code_zh](motorbit/motorbit_RGBCSB_code_zh.png)
 
-> 实物连接图，RGB超声波的引脚选择P2
+> Physical connection diagram, pin P2 is selected for RGB ultrasonic
 
 ![motorbit_RGBCSB_zh](motorbit/motorbit_RGBCSB_zh.png)
-> 当超声波检测到前方距离小于10cm时，超声波的RGB灯 **全部**会显示**靛蓝**，并且有**闪烁**的特效  [RGB超声波实验源码](https://makecode.microbit.org/_TUqXfUJ2c19c)
+> When the ultrasonic detects that the front distance is less than 10cm, the RGB lights of the ultrasonic **all**will display**indigo**， and have**flashing**special effects  [RGB ultrasonic experimental source code](https://makecode.microbit.org/_TUqXfUJ2c19c)
 
-## 8Pin_IO口引出
+## 8Pin IO port leads out
 ![motorbit_Pin_zh](motorbit/IO.png)
 
-* Motor:Bit V1.0/V2.0 有8个引出的IO口，黑色引脚表示电源负极、红色引脚表示电源正极，蓝色表示IO信号口
-* Motor:Bit V1.0/V2.0 引出的引脚是P0\P1\P2\P8\P12\P13\P14\P15
-* Motor:Bit V1.0的红色引脚电压为3.3V
-* Motor:Bit V2.0的红色引脚电压通过IO电压选择跳线帽选择，跳线帽插在5V与VCC上时红色引脚电压为5V,跳线帽插在3V3与VCC上时红色引脚电压为3.3V。
+* Motor:Bit V1.0/V2.0 has 8 outgoing IO ports. The black pin represents the negative pole of the power supply, the red pin represents the positive pole of the power supply, and the blue pin represents the IO signal port.
+* Motor:Bit V1.0/V2.0 leads to pin P0\P1\P2\P8\P12\P13\P14\P15
+* Red pin voltage of Motor:Bit V1.0 is 3.3V
+* The red pin voltage of Motor:Bit V2.0 is selected by jumper cap . The red pin voltage is 5V when the jumper cap is inserted into 5V and VCC, and the red pin voltage is 3.3V when the jumper cap is inserted into 3V3 and VCC。
 
-## I2C接口
+## I2C port
 ![motorbit_I2C_zh](motorbit/I2C.png)
 
-* Motor:Bit V1.0包含2个PH2.0-4Pin I2C接口，可以使用该接口来控制LCD 1602液晶屏等。在使用I2C通信时，应注意扩展板的数据线SDA引脚连接终端数据线SDA引脚，扩展版的时钟线SCL引脚连接终端的时钟线SCL引脚
-* Motor:Bit V2.0包含1个i2c接口，可以使用该接口来控制LCD 1602液晶屏等。在使用I2C通信时，应注意扩展版的数据线SDA引脚连接终端数据线SDA引脚，扩展版的时钟线SCL引脚连接终端的时钟线SCL引脚
-* 不同的I2C模块需要的电压不同，可以通过IO电压选择跳线帽对I2C红色引脚的电压进行调整
-> I2C使用例程（控制LCD1602显示）
+* Motor:Bit V1.0 includes two PH2.0-4Pin I2C interfaces, which can be used to control the LCD 1602 LCD screen, etc.When using I2C for communication, it should be noted that the data line SDA pin of the expansion board is connected to the terminal data line SDA pin, and the clock line SCL pin of the expansion board is connected to the clock line SCL pin of the terminal.
+* The Motor:Bit V2.0 includes one i2c interface, which can be used to control the LCD 1602 LCD screen, etc.When using I2C communication, attention should be paid to that the data line SDA pin of extended board is connected to the terminal data line SDA pin, and the clock line SCL pin of extended board is connected to the terminal clock line SCL pin
+* Different I2C modules require different voltage. You can adjust the voltage of the red pin of the I2C by using the  jumper cap
+> I2C using routines (control LCD1602 display)
 
  ![motorbit_I2C_code_zh](motorbit/motorbit_I2C_code_zh.png)
 
-> 实验实物图，在接线时，需要注意LCD1602液晶的SDA引脚接在扩展板的SDA引脚、SCL引脚接在扩展板的SCL引脚、GND引脚接在扩展板的黑色GND引脚、VCC引脚接在扩展板的红色5V引脚，不同的I2C模块需要的电压不同，LCD1602液晶需要5V(注意调节液晶背面的旋钮、以调整显示效果达到最好的显示)
+> Experimental diagram,When connecting cables, note that the SDA pin of the LCD1602 LCD is connected to the SDA pin of the expansion board, the SCL pin is connected to the SCL pin of the expansion board, the GND pin is connected to the black GND pin of the expansion board, and the VCC pin is connected to the red 5V pin of the expansion board. Different I2C modules require different voltage, and the LCD1602 LCD requires 5V(Pay attention to adjust the knob on the back of the LCD to adjust the display effect to achieve the best display)
 
 ![motorbit_I2C_zh](motorbit/motorbit_I2C_zh.png)
 
-> 实验现象为：LCD1602液晶第一行显示**`Hello! emakefun!`**    ，第二行显示**`2020 2 2`** [LCD1602液晶实验源码](https://makecode.microbit.org/_6s8UXUHCo67w)
+> The experimental phenomenon is：LCD1602 LCD first line display**`Hello! emakefun!`**    ，The second line shows**`2020 2 2`** [LCD1602 LCD experiment source code](https://makecode.microbit.org/_6s8UXUHCo67w)
 
-## 电压引脚
+## Voltage pin
 
 ![image-20200305102121549](motorbit/motorbit_V_PCB_zh.jpg)
 
-* Motor:Bit 扩展板设计有三种电压引脚，分别为3V3、5V、VIN(+，没有经过降压的电压接口）
-* 对于8个IO口、可以通过IO口跳线帽进行选择不同的电压：对于8个PWM舵机接口，可以通过跳线帽选择不同的电压，需要注意，当选择5V的时候，供电来源于开关选择的电源直接相关，选择‘ +’   的时候，供电来源为接线柱电源，与开关选择无关
+* Motor:Bit expansion board design has three voltage pins, respectively 3V3, 5V, VIN(+,Voltage interface without step-down)
+* For the eight I/O ports, you can select different voltages through the I/O port jumper caps：For 8 PWM steering gear interfaces, different voltages can be selected through jumper caps，Note that when 5V is selected, the power supply is directly related to the power supply selected by the switch. When + is selected, the power supply source is the terminal power supply, which has nothing to do with the switch selection
 
 
-## 导入软件包
+## Import software package
 
-### 打开编程网页
+### Open the programming page
 
-* [点击makecode](https://makecode.microbit.org/)  进入编程官网
+* [Click makecode](https://makecode.microbit.org/) Enter the programming official website
 
-### 新建项目
-* 点击黑色箭头指向的**`新建项目`** ，进入到编程界面
+### New project
+* Click**`New project`** pointed by the black arrow to enter the programming interface
 ![motorbit_project_zh](motorbit/motorbit_project_zh.png)
 
-### 添加包
-* 点击**`高级`**—>**`扩展`**—>输入网址**`https://github.com/emakefun/pxt-motorbit.git`**点击搜索—>点击motorbit包
+### Add packages
+* Click**`advanced`**—>**`extension`**—>input the web address**`https://github.com/emakefun/pxt-motorbit.git`**Click search—>Click motorbit package
 ![motorbit_highpackage_zh](motorbit/motorbit_highpackage_zh.png)
 
 ![motorbit_extend_zh](motorbit/motorbit_extend_zh.png)
@@ -253,62 +249,63 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 ![motorbit_complete_zh](motorbit/motorbit_complete_zh.png)
 
-## 程序下载
+## Program download
 
-### 点击下载按钮
-* 点击**`下载`**,     红色箭头所指的按扭![motorbit_datadown_zh](motorbit/motorbit_datadown_zh.png)
+### Click Download button
+* Click**`Download`**,    the button indicated by The red arrow  ![motorbit_datadown_zh](motorbit/motorbit_datadown_zh.png)
 
-### 保存到Microbit的U盘上，在保存过程中micro:bit指示灯会闪烁
-* 选择**`MICROBIT`**，点击确定 (使用的是QQ浏览器进行在线的下载)
+### Save to a Microbit USB flash drive. During the saving, the micro:bit indicator blinks
+* Select**`MICROBIT`**，click OK (QQ browser is used for online download)
 
 ![motorbit_datasave_zh](motorbit/motorbit_datasave1_zh.png)
 
-* 点击下载（只要把microbit程序文件下载或保存到microbit主板的名为**`MICROBIT`**的内存盘，程序就会在microbit中运行）
+* Click download（As long as the microbit program file is downloaded or saved to the microbit motherboard's memory disk named**`MICROBIT`**,the program will run in microbit）
 
 ![motorbit_datasave2_zh](motorbit/motorbit_datasave2_zh.png)
 
-## micropython语法
-如果需要支持python语法，需要将固件下载到Micro:Bit
+## micropython syntax
+If you want to support python syntax, you need to download the firmware to Micro:Bit
 
-[点击下载Micro:Bit V1最新固件](http://www.emakefun.com/firmware/firmware_v2.hex)
+[Click to download the latest Micro:Bit V1 firmware](http://www.emakefun.com/firmware/firmware_v2.hex)
 
-[点击下载Micro:Bit V2最新固件](http://www.emakefun.com/firmware/firmware_v2.hex)
+[Click to download the latest Micro:Bit V2 firmware](http://www.emakefun.com/firmware/firmware_v2.hex)
 
-- 直流电机控制：
-> dcmotor_run(index, speed)    # index: 1/2/3/4（电机序号）, speed: -255~255 (电机速度)
-> dcmotor_stop(index)   # 停止直流电机 index: 1/2/3/4 (电机序号)
+- Dc motor control：
+> dcmotor_run(index, speed)    # index: 1/2/3/4（Motor serial number）, speed: -255~255 (Motor speed)
+> dcmotor_stop(index)   # Stop DC motor index: 1/2/3/4 (Motor serial number)
 
 ```
-#1号电机以150的速度正转 2号电机以200的速度反转
+#Motor No.1 is going forward at 150 and motor No.2 is going backwards at 200
 import motor
 motorbit = motor.init()
-motorbit.dcmotor_run(1, 150)   # 支流电机M1 正向转动速度150
-motorbit.dcmotor_run(2, -200)   # 支流电机M1 反向向转动速度200
+motorbit.dcmotor_run(1, 150)   # Tributary motor M1 has a forward rotation speed of 150
+motorbit.dcmotor_run(2, -200)   # Tributary motor M1 rotates in reverse direction at a speed of 200
 sleep(2000)
 motorbit.dcmotor_stop(1)
 motorbit.dcmotor_stop(2)
 ```
 
-- 步进电机运动：
-> stepper(index, degree)  # index: 1/2 (步进电机序号) , degree: -360~360 (转动角度)
+- Stepper motor motion：
+> stepper(index, degree)  # index: 1/2 (Stepper motor serial number) , degree: -360~360 (rotation angle)
 ```
-# 控制1号步进电机转动150度
+# Control stepper motor No.1 to rotate 150 degrees
 import motor
 motorbit = motor.init()
 motorbit.stepper(1, 150)
 ```
 
-- PWM舵机控制：
-> servo(index, degree, speed=10) inedx: 1/2/3/4/5/6/7/8 (舵机序号，分别对应s1/s2/s3/s4/s5/s6/s7/s8) , degree: 0~180 (角度方位) , speed: 1~10（舵机转动速度, 可以不输入）
+- PWM steering gear control
+：
+> servo(index, degree, speed=10) inedx: 1/2/3/4/5/6/7/8 (The serial number of the steering gear, corresponding to s1/s2/s3/s4/s5/s6/s7/s8) , degree: 0~180 (degree of azimuth) , speed: 1~10（The rotation speed of the steering gear may not be entered）
 
 ```
-# 控制连接在S1引脚的舵机转动到90°位置
+# Control the rotation of the steering gear connected to the S1 pin to the 90° position
 import motor
 motorbit = motor.init()
 motorbit.servo(1, 90)
 ```
 ```
-#控制连接在S1引脚的舵机以 5 速度转动到90°位置
+#Control the steering gear connected to the S1 pin to turn at 5 speed to the 90° position
 import motor
 motorbit = motor.init()
 motorbit.servo(1, 90, speed=5)
@@ -316,22 +313,24 @@ motorbit.servo(1, 90, speed=5)
 
 
 # FAQ:
-1. 电机不转？
+1. Motor non-rotation？
 
-答：MotorMotor:Bit V1.0检查电池是否有电，检查电源开关。MotorMotor:Bit V2.0检查拨码开关是否拨动到相对应的位置。
+Answer：MotorMotor:Bit V1.0 Check whether the battery is charged. Check the power switch.MotorMotor:Bit V2.0 Check whether the DIP switch is toggle to the corresponding position.
 
-2. 供电方式?
+2. Power supply mode?
 
-答： Motor:Bit V1.0第一种供电方式为14500锂电池供电，第二种供电方式为PH2.0接口供电，两种供电方式的供电电压范围为3.7V-4.2V。MotorMotor:Bit V1.0第一种供电方式为3.5mm接线柱供电,第二种供电方式为3.5mmDC头供电,两种供电方式的供电电压范围为6V-15V。具体详情请看电源供电口
+Answer： 
+Motor:Bit V1.0 The first power supply mode supplies power by the 14500 lithium battery, and the second power supply mode supplies power by the PH2.0 interface. The two power supply modes range from 3.7V to 4.2V。
+MotorMotor:Bit V1.0 The first power supply mode supplies power by the 3.5mm terminal and the second power supply mode supplies power by the 3.5mmDC terminal. The two power supply modes supply voltage ranging from 6V to 15V。Please refer to the power supply port for details
 
-- [电源供电口](#电源供电口)
+- [Power supply port](#电源供电口)
 
-3. RGB超声波，RGB如何驱动？
+3. RGB Ultrasound, how does RGB drive？
 
-答：RGB超声波的RGB灯珠是串联板载RGB灯珠，且是通过P16驱动。
+Answer：RGB beads of RGB ultrasonic  are in series onboard RGB beads and are driven by P16。
 
-4. Motor:Bit V2.0舵机不转动？
+4. Motor:Bit V2.0 The steering gear non-rotation？
 
-答：请先确定舵机供电电压，在检查 Motor:Bit V2.0扩展舵机电压选择是否正确，详情请查看
+Answer：Please first determine the power supply voltage of the steering gear, and then check whether the voltage selection of Motor:Bit V2.0 extended steering gear is correct. Please check for details
 
-- [8路舵机接口](#8路舵机接口)
+- [8 way steering gear interface](#8路舵机接口)
