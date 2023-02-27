@@ -2,26 +2,26 @@
 
 #  Motor:Bit Product Introduction
 
-[English](README.md) 中文版
+[中文版](README_zh.md) English
 
-- [Product Feature](#产品特色) 
-- [Product Photo Show](#产品实物图)
-- [Hardware Interface Introduction](#硬件接口介绍) 
-- [Motor Function Description](#电机功能说明) 
-- [Description Of Each Unit Module Of The Expansion Board](#扩展板各单元模块详解) 
-    - [Power Supply Port](#电源供电口)
-    - [Buzzer](#蜂鸣器)
-    - [Infrared Receiver](#红外接收)
-    - [RGB Colourful Light](#RGB炫彩灯)
-    - [Dc Motor Interface](#直流电机接口)
-    - [8 Way Steering Engine Interface](#8路舵机接口)
-    - [Stepper Motor Interface](#步进电机接口)
-    - [RGB Ultrasonic Wave](#RGB超声波)
-    - [8Pin IO Port Leads Out](#8Pin_IO口引出)
-    - [I2C Port](#I2C接口)
-    - [Voltage Pin](#电压引脚)
-- [Import Software Package](#导入软件包)
-- [Program Download](#程序下载)
+- [Product Feature](#Product Feature) 
+- [Product Photo Show](#Product Photo Show)
+- [Hardware Interface Introduction](#Hardware Interface Introduction) 
+- [Motor Function Description](#Motor Function Description) 
+- [Description Of Each Unit Module Of The Expansion Board](#Description Of Each Unit Module Of The Expansion Board) 
+    - [Power Supply Port](#Power Supply Port)
+    - [Buzzer](#Buzzer)
+    - [Infrared Receiver](#Infrared Receiver)
+    - [RGB Colourful Light](#RGB Colourful Light)
+    - [Dc Motor Interface](#Dc Motor Interface)
+    - [8 Way Steering Engine Interface](#8 Way Steering Engine Interface)
+    - [Stepper Motor Interface](#Stepper Motor Interface)
+    - [RGB Ultrasonic Wave](#RGB Ultrasonic Wave)
+    - [8Pin IO Port Leads Out](#8Pin IO Port Leads Out)
+    - [I2C Port](#I2C Port)
+    - [Voltage Pin](#Voltage Pin)
+- [Import Software Package](#Import Software Package)
+- [Program Download](#Program Download)
 - [FAQ](#FAQ) 
 
 Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and the development of a drive motor, steering gear, stepper motor of a multifunctional motor drive expansion board.Micro:Bit V2.0 solves the problem that similar driving boards on the market support a single 3.7V battery driving force is seriously insufficient.The drive board adopts the control circuit power supply and the steering gear power supply separate, separate power supply scheme,adopts power chip with large current output to supply power independently to the steering gear,supports DC(6-15 V) input voltage,The driver chip adopts 4 high current driver chips,maximum driving current up to 4A,Easily drive four 24V DC motors or 30 high speed motors simultaneously.The steering gear can also be independently powered by an external power source,can support 8 steering gear control at the same time.The board can be inserted directly or horizontally,inserted directly of method is compatible with control board.Mounting hole compatible with Lego.Can be very convenient to install in their own creative design.Complete library support,Accompanying developments include MakeCode、Scratch3.0、MicroPython libraries and tutorials.
@@ -142,7 +142,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 > Experimental result：When the Micro:Bit motherboard A key is pressed, the motor connected to M1(A01A02) rotates clockwise, press the B key, the motor rotates in the opposite direction [Dc motor experiment source code](https://makecode.microbit.org/_6pTH0XCLjYdb)
 
-## 8 way steering gear interface
+## 8 Way Steering Engine Interface
 ![motorbit_servo_zh](./motorbit/Servo.png)
 
 * Motor:Bit V1.0/V2.0 Support drive 8 channel PWM steering gear at the same time
@@ -180,7 +180,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 > Stepper motor drive experiment，The experimental results are：The stepper motor connected to the STPM1_2 pin rotates 50°, stops the delay of 500ms, and then rotates again, and so on ， [Step motor experiment source code](https://makecode.microbit.org/_41a2Trhpfe55)
 
 
-## RGB Ultrasonic
+## RGB Ultrasonic Wave
 ![motorbit_RGBCSB_zh](motorbit/RGB_ultrasonic.png)
 
 * one PH2.0-4Pin Rg module b Ultrasonic (RUS-04) module interface,The interface has two uses. On the one hand, it can be used as the pin of TX and RX of ultrasonic wave. On the other hand, it can also control the RGB color lights of ultrasonic wave to make the ultrasonic wave module more dazzling and intelligent.
