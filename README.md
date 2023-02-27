@@ -7,7 +7,6 @@
 - [Product Feature](#product-feature)
 - [Product Photo Show](#product-photo-show)
 - [Hardware Interface Introduction](#hardware-interface-introduction)
-
 - [Description Of Each Unit Module Of The Expansion Board](#description-of-each-unit-module-of-the-expansion-board)
   - [Power Supply Port](#power-supply-port)
   - [Buzzer](#buzzer)
@@ -20,9 +19,8 @@
   - [8Pin IO port leads out](#8pin-io-port-leads-out)
   - [I2C port](#i2c-port)
   - [Voltage pin](#voltage-pin)
-  - [Import software package](#import-software-package)
-  - [Program download](#program-download)
-  - [micropython syntax](#micropython-syntax)
+- [Import software package](#import-software-package)
+- [Program download](#program-download)
 - [FAQ:](#faq)
 
 Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and the development of a drive motor, steering gear, stepper motor of a multifunctional motor drive expansion board.Micro:Bit V2.0 solves the problem that similar driving boards on the market support a single 3.7V battery driving force is seriously insufficient.The drive board adopts the control circuit power supply and the steering gear power supply separate, separate power supply scheme,adopts power chip with large current output to supply power independently to the steering gear,supports DC(6-15 V) input voltage,The driver chip adopts 4 high current driver chips,maximum driving current up to 4A,Easily drive four 24V DC motors or 30 high speed motors simultaneously.The steering gear can also be independently powered by an external power source,can support 8 steering gear control at the same time.The board can be inserted directly or horizontally,inserted directly of method is compatible with control board.Mounting hole compatible with Lego.Can be very convenient to install in their own creative design.Complete library support,Accompanying developments include MakeCode、Scratch3.0、MicroPython libraries and tutorials.
