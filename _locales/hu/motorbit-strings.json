@@ -1,5 +1,5 @@
 {
-    "motorbit|block": "MotorBit",
+    "motorbit|block": "Motor:Bit",
     "motorbit.Servo|block": "Szervó %index|, szög %degree fok",
     "motorbit.Servospeed|block": "Szervó %index|, kezdőszög %degree1 fok|, végszög %degree2 fok|, forgási sebesség %speed",
     "motorbit.StepperDegree|block": "Léptetőmotor 28BYJ-48 %index|, szög %degree fok",
