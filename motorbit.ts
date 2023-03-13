@@ -14,7 +14,7 @@ enum Offset {
     FOUR = 3
 }
 
-//% color="#EE6A50" weight=10 icon="\uf63b"
+//% color="#EE6A50" weight=10 icon="\uf0d1"
 namespace motorbit {
 const PCA9685_ADDRESS = 0x40
 const MODE1 = 0x00
@@ -56,10 +56,10 @@ export enum Servos {
 }
 
 export enum Motors {
-    A01A02 = 0x4,
-    B01B02 = 0x3,
-    A03A04 = 0x2,
-    B03B04 = 0x1
+    M1 = 0x1,
+    M2 = 0x2,
+    M3 = 0x3,
+    M4 = 0x4
 }
 
 export enum Steppers {
@@ -195,6 +195,7 @@ function stopMotor(index: number) {
 //% blockId=motorbit_servo block="Servo|%index|degree|%degree"
 //% weight=100
 //% degree.defl=90
+//% degree.min=0 degree.max=180
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
 export function Servo(index: Servos, degree: number): void {
     if (!initialized) {
