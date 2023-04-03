@@ -121,7 +121,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 ![motorbit_RGB_code_zh](motorbit/motorbit_RGB_code_zh.png)
 
-> Experimental design of RGB flow lamp ,experimental result：Onboard RGB lights display red, green and blue colors at a interval of 1s  [RGB Experimental source code](https://makecode.microbit.org/_XD8L8u8s77cD) 
+> Experimental design of RGB flow lamp ,experimental result：Onboard RGB lights display red, green and blue colors at a interval of 1s  [RGB Experimental source code](https://makecode.microbit.org/_966aubDhmhsc) 
 
 
 ## DC Motor Interface

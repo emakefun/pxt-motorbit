@@ -99,7 +99,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 ## 红外接收
 
-#### **MakeCode红外扩展库: https://github.com/emakefun/pxt-motorbit
+#### **MakeCode扩展库: https://github.com/emakefun/pxt-motorbit
 
 ![motorbit_IR_zh](motorbit/IR.png)
 
@@ -124,7 +124,7 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 ![motorbit_RGB_code_zh](motorbit/motorbit_RGB_code_zh.png)
 
-> RGB流水灯实验设计 ，实验结果为：板载RGB灯红绿蓝三色间隔1s显示  [RGB实验源码](https://makecode.microbit.org/_XD8L8u8s77cD) 
+> RGB流水灯实验设计 ，实验结果为：板载RGB灯红绿蓝三色间隔1s显示  [RGB实验源码](https://makecode.microbit.org/_966aubDhmhsc) 
 
 
 ## 直流电机接口
@@ -227,6 +227,11 @@ Micro:Bit是[易创空间](http://www.emakefun.com/) 专门针对Micro:Bit而开
 
 * Motor:Bit 扩展板设计有三种电压引脚，分别为3V3、5V、VIN(+，没有经过降压的电压接口）
 * 对于8个IO口、可以通过IO口跳线帽进行选择不同的电压：对于8个PWM舵机接口，可以通过跳线帽选择不同的电压，需要注意，当选择5V的时候，供电来源于开关选择的电源直接相关，选择‘ +’   的时候，供电来源为接线柱电源，与开关选择无关
+
+### 经典案例
+
+1. [红外遥控器控制麦轮小车](https://makecode.microbit.org/_iX6Toq4saVHL)
+2. JoystickBit手柄无线控制麦轮小车    [手柄程序](https://makecode.microbit.org/_bVj0r32qUaVo)   [麦轮小车程序](https://makecode.microbit.org/_5CzePW2wTTm8)
 
 
 ## 导入软件包
