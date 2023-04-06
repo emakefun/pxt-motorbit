@@ -90,7 +90,19 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * The Motor:Bit V1.0/ V2.0 is connected and disconnected from the P0 pin of the Micro:Bit motherboard via a dip switch. When toggle to off, pin P0 cannot control the onboard buzzer, at which point pin P0 can be used as a normal IO pin。
 > The passive buzzer plays music Routine Experiment
 
-![motorbit_buzzer_code_zh](motorbit/motorbit_buzzer_code_zh.png)
+`input.onButtonPressed(Button.A, function () {`
+
+  `music.startMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once)`
+
+`})`
+
+`input.onButtonPressed(Button.B, function () {`
+
+  `music.startMelody(music.builtInMelody(Melodies.Ringtone), MelodyOptions.Once)`
+
+`})`
+
+`basic.showNumber(0)`
 
 > The experimental phenomenon ：When pressing Micro:Bit motherboard A key to play Happy birthday song： When the B key is pressed, the ringtone is played[Buzzer experiment source code](https://makecode.microbit.org/_7T6XPUbgYhcb)
 
@@ -104,11 +116,97 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * The infrared receiving head is connected and disconnected with the P5 pin of the microbit motherboard through the dip switch. When toggled to off, pin P5 cannot control the infrared receiving head. At this time, pin P0 can be used as an ordinary IO pin.
 > Infrared Receiving Experiment Routine
 
-![motorbit_IR_code_zh](motorbit/irRemote_1.png)
+`EM_IR.OnPressEvent(function (message) {`
 
-![motorbit_IR_code_zh](motorbit/irRemote_2.png)
+  `if (message == 69) {`
 
-![motorbit_IR_code_zh](motorbit/irRemote_3.png)
+​    `basic.showString("A")`
+
+  `} else if (message == 70) {`
+
+​    `basic.showString("B")`
+
+  `} else if (message == 71) {`
+
+​    `basic.showString("C")`
+
+  `} else if (message == 68) {`
+
+​    `basic.showString("D")`
+
+  `} else if (message == 64) {`
+
+​    `basic.showString("UP")`
+
+  `} else if (message == 67) {`
+
+​    `basic.showString("+")`
+
+  `} else if (message == 7) {`
+
+​    `basic.showString("LEFT")`
+
+  `} else if (message == 21) {`
+
+​    `basic.showString("OK")`
+
+  `} else if (message == 9) {`
+
+​    `basic.showString("RIGHT")`
+
+  `} else if (message == 22) {`
+
+​    `basic.showString("0")`
+
+  `} else if (message == 25) {`
+
+​    `basic.showString("DOWN")`
+
+  `} else if (message == 13) {`
+
+​    `basic.showString("-")`
+
+  `} else if (message == 12) {`
+
+​    `basic.showString("1")`
+
+  `} else if (message == 24) {`
+
+​    `basic.showString("2")`
+
+  `} else if (message == 94) {`
+
+​    `basic.showString("3")`
+
+  `} else if (message == 8) {`
+
+​    `basic.showString("4")`
+
+  `} else if (message == 28) {`
+
+​    `basic.showString("5")`
+
+  `} else if (message == 90) {`
+
+​    `basic.showString("6")`
+
+  `} else if (message == 66) {`
+
+​    `basic.showString("7")`
+
+  `} else if (message == 82) {`
+
+​    `basic.showString("8")`
+
+  `} else if (message == 74) {`
+
+​    `basic.showString("9")`
+
+  `}`
+
+`})`
+
+`EM_IR.IrRemote_init(IrPins.P5)`
 
 > The experimental phenomenon：Infrared remote control key 'A' pressed, Micro:Bit motherboard display letter "A", key B pressed down, Micro:Bit motherboard display letter "B", key C pressed down, Micro:Bit motherboard display letter "C"   [Click to view the infrared experiment source code](https://makecode.microbit.org/_eAv9yiUC2VV3)。When other functions need to be realized through infrared remote control, you can change the display string into the corresponding logic.
 
@@ -119,7 +217,43 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * Motor:Bit V1.0/V2.0 onboard 4 RGB full color lights, connected to the P16 pin of the Micro:Bit motherboard, you can control the four RGB lights on/off and color by programming the P16 pin.
 > Onboard RGB Experiment Routine
 
-![motorbit_RGB_code_zh](motorbit/motorbit_RGB_code_zh.png)
+`basic.forever(function () {`
+
+  `motorbit.Setting_the_on_board_lights(Offset.ONE, RgbColors.Red)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.TWO, RgbColors.Red)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.THREE, RgbColors.Red)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.FOUR, RgbColors.Red)`
+
+  `basic.pause(1000)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.ONE, RgbColors.Green)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.TWO, RgbColors.Green)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.THREE, RgbColors.Green)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.FOUR, RgbColors.Green)`
+
+  `basic.pause(1000)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.ONE, RgbColors.Blue)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.TWO, RgbColors.Blue)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.THREE, RgbColors.Blue)`
+
+  `motorbit.Setting_the_on_board_lights(Offset.FOUR, RgbColors.Blue)`
+
+  `basic.pause(1000)`
+
+  `motorbit.close_all_the_on_board_lights()`
+
+  `basic.pause(1000)`
+
+`})`
 
 > Experimental design of RGB flow lamp ,experimental result：Onboard RGB lights display red, green and blue colors at a interval of 1s  [RGB Experimental source code](https://makecode.microbit.org/_966aubDhmhsc) 
 
@@ -133,7 +267,19 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * Motor:Bit V2.0 expansion board can also be connected to M1(A01,A02),M2(A03,A04) and M3(B01,B02)M4(B03,B04) from the terminal position of the stepper Motor.
 > Control DC motor Routine Experiment
 
-![motorbit_DCmotor_code_zh](motorbit/motorbit_DCmotor_code_zh.png)
+`input.onButtonPressed(Button.A, function () {`
+
+  `motorbit.MotorRun(motorbit.Motors.M1, 255)`
+
+`})`
+
+`input.onButtonPressed(Button.B, function () {`
+
+  `motorbit.MotorRun(motorbit.Motors.M1, -255)`
+
+`})`
+
+`basic.showIcon(IconNames.Happy)`
 
 >Physical wiring diagram (DC power supply port, switch to on(DC))
 
@@ -155,7 +301,21 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 > Steering gear control experiment routine
 
-![motorbit_servo_code_zh](motorbit/motorbit_servo_code_zh.png)
+`basic.showIcon(IconNames.Happy)`
+
+`motorbit.Servo(motorbit.Servos.S1, 90)`
+
+`basic.forever(function () {`
+
+  `motorbit.Servo(motorbit.Servos.S1, 160)`
+
+  `basic.pause(500)`
+
+  `motorbit.Servospeed(motorbit.Servos.S1, 160, 30, 1)`
+
+  `basic.pause(500)`
+
+`})`
 
 > Physical connection diagram, routine experiment select S1 pin, physical connection is also connected to S1 pin
 
@@ -171,7 +331,15 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 > Stepper motor experiment routine
 
-![motorbit_motor_code_zh](motorbit/motorbit_stepper_code_zh.png)
+`basic.showIcon(IconNames.Happy)`
+
+`basic.forever(function () {`
+
+  `motorbit.StepperDegree(motorbit.Steppers.STPM1_2, 50)`
+
+  `basic.pause(500)`
+
+`})`
 
 > physical connection diagram, the routine experiment selects STPM1_2 pins, and the physical connection is also connected to the corresponding pins. Pay attention to the color of different pin connections
 
@@ -187,7 +355,17 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * RGB color lights of ultrasonic , you can choose to control the left and right, display color and display effects, which include breathing lights, rotating meteors, flashing。
 > Ultrasonic RGB Experiment Routine
 
-![motorbit_RGBCSB_code_zh](motorbit/motorbit_RGBCSB_code_zh.png)
+`basic.showIcon(IconNames.Happy)`
+
+`basic.forever(function () {`
+
+  `if (motorbit.Ultrasonic_reading_distance() < 10) {`
+
+​    `motorbit.motorbit_rus04(RgbUltrasonics.All, RgbColors.Indigo, ColorEffect.Flash)`
+
+  `}`
+
+`})`
 
 > Physical connection diagram, pin P2 is selected for RGB ultrasonic
 
@@ -210,7 +388,31 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * Different I2C modules require different voltage. You can adjust the voltage of the red pin of the I2C by using the  jumper cap
 > I2C using routines (control LCD1602 display)
 
- ![motorbit_I2C_code_zh](motorbit/motorbit_I2C_code_zh.png)
+`basic.showIcon(IconNames.Happy)`
+
+`I2C_LCD1602.i2cLcdInit(39)`
+
+`I2C_LCD1602.i2cLcdBacklightOff()`
+
+`basic.pause(500)`
+
+`I2C_LCD1602.i2cLcdBacklightOn()`
+
+`I2C_LCD1602.i2cLcdShowString("Hello! emakefun", 1, 0)`
+
+`I2C_LCD1602.i2cLcdShowString("2020 2 2", 8, 1)`
+
+`I2C_LCD1602.i2cLcdOff()`
+
+`basic.pause(500)`
+
+`I2C_LCD1602.i2cLcdOn()`
+
+`basic.forever(function () {`
+
+  `basic.pause(100)`
+
+`})`
 
 > Experimental diagram,When connecting cables, note that the SDA pin of the LCD1602 LCD is connected to the SDA pin of the expansion board, the SCL pin is connected to the SCL pin of the expansion board, the GND pin is connected to the black GND pin of the expansion board, and the VCC pin is connected to the red 5V pin of the expansion board. Different I2C modules require different voltage, and the LCD1602 LCD requires 5V(Pay attention to adjust the knob on the back of the LCD to adjust the display effect to achieve the best display)
 
@@ -225,42 +427,12 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * Motor:Bit expansion board design has three voltage pins, respectively 3V3, 5V, VIN(+,Voltage interface without step-down)
 * For the eight I/O ports, you can select different voltages through the I/O port jumper caps：For 8 PWM steering gear interfaces, different voltages can be selected through jumper caps，Note that when 5V is selected, the power supply is directly related to the power supply selected by the switch. When + is selected, the power supply source is the terminal power supply, which has nothing to do with the switch selection
 
+## Classic Cases
+
+1. [Infrared remote control to control Mecanum car](https://makecode.microbit.org/_iX6Toq4saVHL)
+2. JoystickBit control Mecanum car    [JoystickBit Program](https://makecode.microbit.org/_bVj0r32qUaVo)   [Mecanum car Program](https://makecode.microbit.org/_5CzePW2wTTm8)
 
 ## Import software package
-
-### Open the programming page
-
-* [Click makecode](https://makecode.microbit.org/) Enter the programming official website
-
-### New project
-* Click**`New project`** pointed by the black arrow to enter the programming interface
-![motorbit_project_zh](motorbit/motorbit_project_zh.png)
-
-### Add packages
-* Click**`advanced`**—>**`extension`**—>input the web address**`https://github.com/emakefun/pxt-motorbit.git`**Click search—>Click motorbit package
-![motorbit_highpackage_zh](motorbit/motorbit_highpackage_zh.png)
-
-![motorbit_extend_zh](motorbit/motorbit_extend_zh.png)
-
-![motorbit_addpackage_zh](motorbit/motorbit_addpackage_zh.png)
-
-![motorbit_click_zh](motorbit/motorbit_click_zh.png)
-
-![motorbit_complete_zh](motorbit/motorbit_complete_zh.png)
-
-## Program download
-
-### Click Download button
-* Click**`Download`**,    the button indicated by The red arrow  ![motorbit_datadown_zh](motorbit/motorbit_datadown_zh.png)
-
-### Save to a Microbit USB flash drive. During the saving, the micro:bit indicator blinks
-* Select**`MICROBIT`**，click OK (QQ browser is used for online download)
-
-![motorbit_datasave_zh](motorbit/motorbit_datasave1_zh.png)
-
-* Click download（As long as the microbit program file is downloaded or saved to the microbit motherboard's memory disk named**`MICROBIT`**,the program will run in microbit）
-
-![motorbit_datasave2_zh](motorbit/motorbit_datasave2_zh.png)
 
 ## micropython syntax
 If you want to support python syntax, you need to download the firmware to Micro:Bit
