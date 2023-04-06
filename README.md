@@ -58,17 +58,17 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 ### Front View
 ### Motor:Bit V1.0
-![image-20200305102542741](motorbit/MotorBit_V1.0_mark.png)
-
+![image-20200305102542741](motorbit/en/MotorBit_V1_0_mark.png)
 
 ### Motor:Bit V2.0
-![image-20200305102542741](motorbit/MotorBit_V2.0_mark.png)
+
+![image-20200305102542741](motorbit/en/MotorBit_V2_0_mark.png)
 
 
 # Description Of Each Unit Module Of The Expansion Board
 
 ## Power Supply Port
-![motorbit_DC_PCB1_zh](motorbit/Power.png)
+![motorbit_DC_PCB1_zh](motorbit/en/Power.png)
 - Motor:Bit V1.0 has two power supply ports,one PH2.0 interface(symbol '+' indicates the positive power line, symbol '-' Indicates the negative power line ),one 14,500 battery case(symbol '+' indicates the positive power line, symbol '-' Indicates the negative power line).The input voltage of the two ports ranges from 3.7V to 4.2V.
 
 - Motor:Bit V1.0  If the charging indicator blinks, it is charging. If it is steady on, it is full.If the battery reverse connection indicator is on, the battery is reversed
@@ -84,7 +84,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 
 ## Buzzer
-![magicbit_buzzer_zh](motorbit/buzzer.png)
+![magicbit_buzzer_zh](motorbit/en/buzzer.png)
 
 * Motor:Bit V1.0/V2.0 The connection pin of the onboard passive buzzer is P0
 * The Motor:Bit V1.0/ V2.0 is connected and disconnected from the P0 pin of the Micro:Bit motherboard via a dip switch. When toggle to off, pin P0 cannot control the onboard buzzer, at which point pin P0 can be used as a normal IO pin。
@@ -110,7 +110,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 #### **MakeCode Infrared Extended Library: https://github.com/emakefun/pxt-motorbit
 
-![motorbit_IR_zh](motorbit/IR.png)
+![motorbit_IR_zh](motorbit/en/IR.png)
 
 * Motor:Bit V1.0/V2.0 on-board infrared receiver is pin P5
 * The infrared receiving head is connected and disconnected with the P5 pin of the microbit motherboard through the dip switch. When toggled to off, pin P5 cannot control the infrared receiving head. At this time, pin P0 can be used as an ordinary IO pin.
@@ -212,7 +212,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 
 ## RGB Colourful Light
-![motorbit_RGB_zh](motorbit/RGB.png)
+![motorbit_RGB_zh](motorbit/en/RGB.png)
 
 * Motor:Bit V1.0/V2.0 onboard 4 RGB full color lights, connected to the P16 pin of the Micro:Bit motherboard, you can control the four RGB lights on/off and color by programming the P16 pin.
 > Onboard RGB Experiment Routine
@@ -260,7 +260,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 ## DC Motor Interface
 
-![motorbit_DCmotor_zh](motorbit/DC_motor.png)
+![motorbit_DCmotor_zh](motorbit/en/DC_motor.png)
 
 * Motor:Bit V1.0/V2.0 expansion board is designed with four PH2.0 DC Motor connector interfaces: M1,M2,M3,M4
 * Motor:Bit V1.0 expansion board can also be connected to M1(A01,A02),M2(A03,A04) and M3(B01,B02)M4(B03,B0) from the pin header position of stepper motor 
@@ -288,7 +288,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 > Experimental result：When the Micro:Bit motherboard A key is pressed, the motor connected to M1(A01A02) rotates clockwise, press the B key, the motor rotates in the opposite direction [Dc motor experiment source code](https://makecode.microbit.org/_6pTH0XCLjYdb)
 
 ## 8 Way Steering Engine Interface
-![motorbit_servo_zh](./motorbit/Servo.png)
+![motorbit_servo_zh](./motorbit/en/Servo.png)
 
 * Motor:Bit V1.0/V2.0 Support drive 8 channel PWM steering gear at the same time
 * Motor:Bit V1.0/V2.0  The blue jack of the steering gear pin represents the pin output pwm signal and the PWM input signal line connected to the three-wire steering gear. The red jack represents the positive power terminal and the positive power line connected to the three-wire steering gear. The black jack represents the power GND pole and the negative power line connected to the three-wire steering gear.
@@ -297,7 +297,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 > Physical connection diagram is blow
 
-> ![motorbit_servo_zh](motorbit/servo_power_connect.png)
+> ![motorbit_servo_zh](motorbit/en/servo_power_connect.png)
 
 > Steering gear control experiment routine
 
@@ -324,7 +324,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 ## Stepper motor interface
 
-![motorbit_motor_zh](motorbit/Stepper_motor.png)
+![motorbit_motor_zh](motorbit/en/Stepper_motor.png)
 
 * Contains two 5-wire stepper motors, which can be connected and controlled at the same time.The cables are blue, pink, yellow, orange and red from left to right。
 * Stepper motor and TT motor are supported at the same time. For example, one stepper motor and two DC motors can be controlled（Specific collocation can be set according to the needs）
@@ -348,7 +348,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 
 ## RGB Ultrasonic Wave
-![motorbit_RGBCSB_zh](motorbit/RGB_ultrasonic.png)
+![motorbit_RGBCSB_zh](motorbit/en/RGB_ultrasonic.png)
 
 * one PH2.0-4Pin Rg module b Ultrasonic (RUS-04) module interface,The interface has two uses. On the one hand, it can be used as the pin of TX and RX of ultrasonic wave. On the other hand, it can also control the RGB color lights of ultrasonic wave to make the ultrasonic wave module more dazzling and intelligent.
 * The IO pin of RGB ultrasonic is connected to the P2 interface of the pin, and the RGB port corresponds to the RGB lamp port：RGB lamp of RGB ultrasonic  is an extension of the expansion board lamp, which is controlled by P16 pin. The control principle is the same as that of the control RGB lamp of expansion board . RGB ultrasonic contains six RGB lamps, with three left and right probes.
@@ -373,7 +373,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 > When the ultrasonic detects that the front distance is less than 10cm, the RGB lights of the ultrasonic **all**will display**indigo**， and have**flashing**special effects  [RGB ultrasonic experimental source code](https://makecode.microbit.org/_TUqXfUJ2c19c)
 
 ## 8Pin IO port leads out
-![motorbit_Pin_zh](motorbit/IO.png)
+![motorbit_Pin_zh](motorbit/en/IO.png)
 
 * Motor:Bit V1.0/V2.0 has 8 outgoing IO ports. The black pin represents the negative pole of the power supply, the red pin represents the positive pole of the power supply, and the blue pin represents the IO signal port.
 * Motor:Bit V1.0/V2.0 leads to pin P0\P1\P2\P8\P12\P13\P14\P15
@@ -381,7 +381,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 * The red pin voltage of Motor:Bit V2.0 is selected by jumper cap . The red pin voltage is 5V when the jumper cap is inserted into 5V and VCC, and the red pin voltage is 3.3V when the jumper cap is inserted into 3V3 and VCC。
 
 ## I2C port
-![motorbit_I2C_zh](motorbit/I2C.png)
+![motorbit_I2C_zh](motorbit/en/I2C.png)
 
 * Motor:Bit V1.0 includes two PH2.0-4Pin I2C interfaces, which can be used to control the LCD 1602 LCD screen, etc.When using I2C for communication, it should be noted that the data line SDA pin of the expansion board is connected to the terminal data line SDA pin, and the clock line SCL pin of the expansion board is connected to the clock line SCL pin of the terminal.
 * The Motor:Bit V2.0 includes one i2c interface, which can be used to control the LCD 1602 LCD screen, etc.When using I2C communication, attention should be paid to that the data line SDA pin of extended board is connected to the terminal data line SDA pin, and the clock line SCL pin of extended board is connected to the terminal clock line SCL pin
@@ -422,7 +422,7 @@ Micro:Bit is [Emakefun](http://www.emakefun.com/) specifically for Micro:Bit and
 
 ## Voltage pin
 
-![image-20200305102121549](motorbit/motorbit_V_PCB_zh.jpg)
+![image-20200305102121549](motorbit/en/motorbit_V_PCB_zh1.png)
 
 * Motor:Bit expansion board design has three voltage pins, respectively 3V3, 5V, VIN(+,Voltage interface without step-down)
 * For the eight I/O ports, you can select different voltages through the I/O port jumper caps：For 8 PWM steering gear interfaces, different voltages can be selected through jumper caps，Note that when 5V is selected, the power supply is directly related to the power supply selected by the switch. When + is selected, the power supply source is the terminal power supply, which has nothing to do with the switch selection
