@@ -4,12 +4,13 @@
     "description": "motorbit emakefun",
     "dependencies": {
         "core": "*",
-        "irRemote": "github:emakefun/pxt-irRemote",
+        
         "Sensorbit": "github:emakefun/pxt-sensorbit"
     },
     "files": [
         "README.md",
         "motorbit.ts",
+        "_locales/hu/motorbit-strings.json",
         "_locales/zh/motorbit-strings.json"
     ],
     "testFiles": [
