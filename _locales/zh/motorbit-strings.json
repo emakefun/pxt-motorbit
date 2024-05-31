@@ -1,7 +1,11 @@
 {
     "motorbit|block": "Motor:Bit",
-    "motorbit.Servo|block": "舵机|%index|角度|%degree",
-    "motorbit.Servospeed|block": "舵机 Servo|%index|开始角度 %degree1|结束角度 %degree2|旋转速度 %speed",
+    "motorbit.Servo|block": "9G舵机|%index|角度|%degree",
+    "motorbit.Servospeed|block": "9G舵机 Servo|%index|开始角度 %degree1|结束角度 %degree2|旋转速度 %speed",
+	"motorbit.EM_GeekServo|block": "Geekservo|9g舵机|%index|角度 %degree",
+    "motorbit.EM_GeekServo2KG|block": "Geekservo|2KG舵机|%index|角度 %degree",
+    "motorbit.EM_GeekServo5KG|block": "Geekservo|5KG舵机|%index|角度 %degree",
+    "motorbit.EM_GeekServo5KG_Motor|block": "Geekservo|5KG舵机_电机|%index|速度 %speed",
     "motorbit.StepperDegree|block": "步进电机 28BYJ-48|%index|角度 %degree",
     "motorbit.StepperTurn|block": "步进电机 28BYJ-48|%index|圈数 %turn",
     "motorbit.StepperDual|block": "两个步进电机(角度)|STPM1_2 %degree1| STPM3_4 %degree2",

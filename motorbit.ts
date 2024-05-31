@@ -244,6 +244,90 @@ export function Servospeed(index: Servos, degree1: number, degree2: number, spee
     }
 }
 
+/**
+ * Geek Servo
+ * @param index Servo Channel; eg: S1
+ * @param degree [-45-225] degree of servo; eg: -45, 90, 225
+*/
+//% blockId=motorbit_gservo block="Geek Servo|%index|degree %degree=protractorPicker"
+//% weight=96
+//% blockGap=50
+//% degree.defl=90
+//% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+export function EM_GeekServo(index: Servos, degree: number): void {
+    if (!initialized) {
+        initPCA9685()
+    }
+    // 50hz: 20,000 us
+    let v_us = ((degree - 90) * 20 / 3 + 1500) // 0.6 ~ 2.4
+    let value = v_us * 4096 / 20000
+    setPwm(index + 7, 0, value)
+}
+
+
+ /**
+     * GeekServo2KG
+     * @param index Servo Channel; eg: S1
+     * @param degree [0-360] degree of servo; eg: 0, 180, 360
+    */
+    //% blockId=motorbit_gservo2kg block="GeekServo2KG|%index|degree %degree"
+    //% group="Servo" weight=60
+    //% blockGap=50
+    //% degree.min=0 degree.max=360
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function EM_GeekServo2KG(index: Servos, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        // 50hz: 20,000 us
+        //let v_us = (degree * 2000 / 360 + 500)  0.5 ~ 2.5
+        let v_us = (Math.floor((degree) * 2000 / 350) + 500) //fixed
+        let value = v_us * 4096 / 20000
+        setPwm(index + 7, 0, value)
+    }
+	
+	/**
+     * GeekServo5KG
+     * @param index Servo Channel; eg: S1
+     * @param degree [0-360] degree of servo; eg: 0, 180, 360
+    */
+    //% blockId=motorbit_gservo5kg block="GeekServo5KG|%index|degree %degree"
+    //% group="Servo" weight=59
+    //% degree.min=0 degree.max=360
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function EM_GeekServo5KG(index: Servos, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        const minInput = 0;
+        const maxInput = 355;//理论值为360
+        const minOutput = 500;
+        const maxOutput = 2500;
+        const v_us = ((degree - minInput) / (maxInput - minInput)) * (maxOutput - minOutput) + minOutput;
+
+        let value = v_us * 4096 / 20000
+        setPwm(index + 7, 0, value)
+    }
+
+    //% blockId=motorbit_gservo5kg_motor block="GeekServo5KG_MotorEN|%index|speed %speed"
+    //% group="Servo" weight=58
+    //% speed.min=-255 speed.max=255
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function EM_GeekServo5KG_Motor(index: Servos, speed: number): void { //5KG的电机模式 3000-5000 4000是回中
+        if (!initialized) {
+            initPCA9685()
+        }
+        const minInput = -255;
+        const maxInput = 255;
+        const minOutput = 5000;
+        const maxOutput = 3000;
+
+        const v_us = ((speed - minInput) / (maxInput - minInput)) * (maxOutput - minOutput) + minOutput;
+        let value = v_us * 4096 / 20000
+        setPwm(index + 7, 0, value)
+    }	
+	
+
 //% blockId=motorbit_stepper_degree block="Stepper 28BYJ-48|%index|degree %degree"
 //% weight=91
 export function StepperDegree(index: Steppers, degree: number): void {
