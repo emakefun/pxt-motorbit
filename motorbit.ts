@@ -193,7 +193,7 @@ function stopMotor(index: number) {
  * @param degree [0-180] degree of servo; eg: 0, 90, 180
 */
 //% blockId=motorbit_servo block="Servo|%index|degree|%degree"
-//% weight=100
+//% group="Servo" weight=100
 //% degree.defl=90
 //% degree.min=0 degree.max=180
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -215,7 +215,7 @@ export function Servo(index: Servos, degree: number): void {
  * @param speed [1-10] speed of servo; eg: 1, 10
 */
 //% blockId=motorbit_servospeed block="Servo|%index|degree start %degree1|end %degree2|speed %speed"
-//% weight=96
+//% group="Servo" weight=96
 //% degree1.min=0 degree1.max=180
 //% degree2.min=0 degree2.max=180
 //% speed.min=1 speed.max=10
@@ -250,7 +250,7 @@ export function Servospeed(index: Servos, degree1: number, degree2: number, spee
  * @param degree [-45-225] degree of servo; eg: -45, 90, 225
 */
 //% blockId=motorbit_gservo block="Geek Servo|%index|degree %degree=protractorPicker"
-//% group="Servo" weight=96
+//% group="GeekServo" weight=96
 //% blockGap=50
 //% degree.defl=90
 //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -271,7 +271,7 @@ export function EM_GeekServo(index: Servos, degree: number): void {
      * @param degree [0-360] degree of servo; eg: 0, 180, 360
     */
     //% blockId=motorbit_gservo2kg block="GeekServo2KG|%index|degree %degree"
-    //% group="Servo" weight=95
+    //% group="GeekServo" weight=95
     //% blockGap=50
     //% degree.min=0 degree.max=360
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -292,7 +292,7 @@ export function EM_GeekServo(index: Servos, degree: number): void {
      * @param degree [0-360] degree of servo; eg: 0, 180, 360
     */
     //% blockId=motorbit_gservo5kg block="GeekServo5KG|%index|degree %degree"
-    //% group="Servo" weight=94
+    //% group="GeekServo" weight=94
     //% degree.min=0 degree.max=360
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function EM_GeekServo5KG(index: Servos, degree: number): void {
@@ -310,7 +310,7 @@ export function EM_GeekServo(index: Servos, degree: number): void {
     }
 
     //% blockId=motorbit_gservo5kg_motor block="GeekServo5KG_MotorEN|%index|speed %speed"
-    //% group="Servo" weight=93
+    //% group="GeekServo" weight=93
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function EM_GeekServo5KG_Motor(index: Servos, speed: number): void { //5KG的电机模式 3000-5000 4000是回中
