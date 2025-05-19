@@ -523,16 +523,16 @@ export function Ultrasonic_reading_distance(): number {
 }
 
 
-//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index|color|%rgb"
+//% blockId=Setting_the_on_board_lights block="Setting the on-board lights %index color %rgb"
 //% group="RGB" weight=76
-export function Setting_the_on_board_lights(offset: Offset,rgb: RgbColors): void {
- sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, rgb, rgb_ColorEffect.None);
+export function Setting_the_on_board_lights(index: Offset,rgb: RgbColors): void {
+ sensors.board_rus04_rgb(DigitalPin.P16, index, 0, rgb, rgb_ColorEffect.None);
 }
 	
 //% blockId=close_the_on_board_lights block="close the on-board lights %index color"
 //% group="RGB" weight=75
-export function close_the_on_board_lights(offset: Offset): void {
- sensors.board_rus04_rgb(DigitalPin.P16, offset, 0, RgbColors.Black, rgb_ColorEffect.None);
+export function close_the_on_board_lights(index: Offset): void {
+ sensors.board_rus04_rgb(DigitalPin.P16, index, 0, RgbColors.Black, rgb_ColorEffect.None);
 }
 	
 //% blockId=close_all_the_on_board_lights block="close all the on-board lights"
