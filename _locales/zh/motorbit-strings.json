@@ -22,8 +22,8 @@
     "Offset.THREE|block": "第三个灯",
     "Offset.FOUR|block": "第四个灯",
     "motorbit.Ultrasonic_reading_distance|block": "板载超声波读取距离",
-    "motorbit.Setting_the_on_board_lights|block": "设置板载灯|%offset|颜色|%rgb",
+    "motorbit.Setting_the_on_board_lights|block": "设置板载灯|%index|颜色|%rgb",
     "motorbit.motorbit_rus04|block": "板载超声波选择彩灯%index选择颜色%rgb选择效果%effect",
-    "motorbit.close_the_on_board_lights|block": "关闭板载RGB|%offset ",
+    "motorbit.close_the_on_board_lights|block": "关闭板载RGB|%index ",
     "motorbit.close_all_the_on_board_lights|block": "关闭全部板载RGB灯"
 }
